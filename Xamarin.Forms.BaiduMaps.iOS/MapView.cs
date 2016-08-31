@@ -5,10 +5,6 @@ using CoreLocation;
 using Xamarin.Forms.Platform.iOS;
 
 using BMapMain;
-using UIKit;
-using CoreGraphics;
-
-using System.Reflection;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
@@ -37,17 +33,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                         if (null != ann.Image) {
                             annotationView.Image = ann.Image.ToNative();
                         }
-
-                        /*var label = new Label();
-                        label.Text = ann.Title;
-                        label.Layout(new Rectangle(0, 0, 100, 50));
-                        label.FontSize = 13;
-                        label.BackgroundColor = Color.White;
-                        label.Opacity = 0.8;
-                        label.VerticalTextAlignment = label.HorizontalTextAlignment = TextAlignment.Center;
-                        annotationView.PaopaoView = new BMKActionPaopaoView(
-                            label.ToNative(new Rectangle(0, 0, 100, 50))
-                        );*/
 
                         return annotationView;
                     }
@@ -103,8 +88,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 map.Map.SendDoubleClicked(coordinate.ToUnity());
             }
 
-            //private Coordinate lastLongClick;
-            //private CLLocationCoordinate2D lastLongClickCoord = new CLLocationCoordinate2D(0, 0);
             public override void MapViewOnLongClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
             {
                 // IOS SDK 3.0 中存在抬起手指又触发一次，和长按拖动也会不停触发的bug
