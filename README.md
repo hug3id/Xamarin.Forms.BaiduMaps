@@ -27,6 +27,7 @@ iOS Project configuration:
 
 Android Project configuration:
 ###
-        1. Open MainActiveity.cs，add init code before LoadApplication: Xamarin.FormsBaiduMaps.Init(null);
+        1. Open MainActiveity.cs，add init code before LoadApplication:  
+           Xamarin.FormsBaiduMaps.Init(null);
         2. Open Properties/AndroidManifest.xml, add permissions and your baidukey,  
            also package must accord with your baidu key
