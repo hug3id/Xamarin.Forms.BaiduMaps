@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMapSearch.Droid", "BMapSea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMapUtils.Droid", "BMapUtils.Droid\BMapUtils.Droid.csproj", "{C7C718CC-6DA4-4341-912E-43BBBD27694D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.Droid", "test.Droid\test.Droid.csproj", "{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.BaiduMaps.Droid", "Xamarin.Forms.BaiduMaps.Droid\Xamarin.Forms.BaiduMaps.Droid.csproj", "{3F0DB3AA-986B-4801-A1B9-C0DF3016C2B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMapBinding.Droid", "BMapBinding.Droid\BMapBinding.Droid.csproj", "{0B512933-8B33-43BE-8878-317DB02B0D48}"
@@ -44,8 +42,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.BaiduMaps.Sample.iOS", "iOS\Xamarin.Forms.BaiduMaps.Sample.iOS.csproj", "{06A4259E-8F5B-4539-AE55-2B2D736EA678}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.BaiduMaps.Sample.Droid", "Droid\Xamarin.Forms.BaiduMaps.Sample.Droid.csproj", "{6D25557F-AC29-410A-B97D-F8077D73A425}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.iOS", "test.iOS\test.iOS.csproj", "{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -249,18 +245,6 @@ Global
 		{C7C718CC-6DA4-4341-912E-43BBBD27694D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{C7C718CC-6DA4-4341-912E-43BBBD27694D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{C7C718CC-6DA4-4341-912E-43BBBD27694D}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|iPhone.Build.0 = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{0260FE81-2AA7-42C6-81B8-D32B4ECC1EC8}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{3F0DB3AA-986B-4801-A1B9-C0DF3016C2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F0DB3AA-986B-4801-A1B9-C0DF3016C2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F0DB3AA-986B-4801-A1B9-C0DF3016C2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -321,17 +305,5 @@ Global
 		{6D25557F-AC29-410A-B97D-F8077D73A425}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{6D25557F-AC29-410A-B97D-F8077D73A425}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{6D25557F-AC29-410A-B97D-F8077D73A425}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|Any CPU.ActiveCfg = Release|iPhone
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|Any CPU.Build.0 = Release|iPhone
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|iPhone.ActiveCfg = Release|iPhone
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|iPhone.Build.0 = Release|iPhone
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{17E39B0A-0DF5-4077-A14F-F08B95D2C31C}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 EndGlobal
