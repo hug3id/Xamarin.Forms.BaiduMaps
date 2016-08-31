@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 
 using Xamarin.Forms.Platform.Android;
 using Com.Baidu.Mapapi.Map;
 using Com.Baidu.Mapapi.Model;
 using BMap = Com.Baidu.Mapapi.Map;
-using System.Collections.Specialized;
-using System.Collections;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {

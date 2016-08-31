@@ -4,15 +4,16 @@ using System.Diagnostics;
 using UIKit;
 using CoreGraphics;
 
-using Xamarin.Forms.Platform.iOS;
-
 using BMapBase;
 using BMapMain;
+
+using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
     public partial class MapRenderer : ViewRenderer<Map, BMKMapView>
     {
+        internal bool isLongPressReady = true;
         private readonly PinImpl pointAnnotationImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
 
@@ -37,50 +38,11 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
         {
             return new SizeRequest {
-                //Request = new Size { Width = 438438, Height = 438438 }
                 Request = new Size {
                     Width = UIScreen.MainScreen.Bounds.Width,
                     Height = UIScreen.MainScreen.Bounds.Height
                 }
             };
-        }
-
-        internal bool isLongPressReady = true;
-        private void OnLongPress(UILongPressGestureRecognizer recognizer) {
-            if (UIGestureRecognizerState.Ended == recognizer.State) {
-                isLongPressReady = true;
-            }
-        }
-
-        private void ForceSubLayout(UIView view)
-        {
-            foreach (var subView in view.Subviews)
-            {
-                ForceSubLayout(subView);
-                if (subView.GetType().Name == "LabelRenderer")
-                {
-                    var renderer = subView as LabelRenderer;
-                    var element = renderer.Element;
-
-                    if (renderer.Bounds.Width == 0 || renderer.Bounds.Height == 0)
-                    {
-                        renderer.SizeToFit();
-                        element.HeightRequest = renderer.Bounds.Height;
-                        element.WidthRequest = renderer.Bounds.Width;
-                    }
-                }
-
-                /*if (subView.GetType().Name.EndsWith("Renderer"))
-                {
-                    var renderer = (UIView)subView;
-                    if (renderer.Bounds.Width == 0 || renderer.Bounds.Height == 0) {
-                        renderer.SizeToFit();
-                        renderer.Element.HeightRequest = renderer.Bounds.Height;
-                        renderer.Element.WidthRequest = renderer.Bounds.Width;
-                    }
-                }*/
-                Debug.WriteLine(subView.GetType().Name);
-            }
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Map> e)
@@ -106,15 +68,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                     longPress.DelaysTouchesEnded = false;
 
                     AddGestureRecognizer(longPress);
-
-                    /*UIView view = Map.Content.ToNative(new Rectangle(0, 0, 375, 567));
-                    view.BackgroundColor = Color.White.ToUIColor();
-                    view.Alpha = 0.7f;
-                    AddSubview(view);
-                    BringSubviewToFront(view);
-                    view.layo*/
-
-                    //ForceSubLayout(view);
                 }
 
                 UpdateMapType();

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reflection;
-
-using Xamarin.Forms;
-using Xamarin.Forms.BaiduMaps;
 
 namespace Xamarin.Forms.BaiduMaps.Sample
 {
@@ -72,10 +68,6 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.UserTrackingMode = UserTrackingMode.FollowWithCompass;
                     map.ShowUserLocation = true;
                 }
-            };
-
-            btnZoomIn.Clicked += (_, e) => {
-                map.ZoomLevel++;
             };
 
             map.LongClicked += (_, e) => {

@@ -108,6 +108,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             public override void MapViewOnLongClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
             {
                 // IOS SDK 3.0 中存在抬起手指又触发一次，和长按拖动也会不停触发的bug
+                // 通过自定义长按手势判断长按是否开始，触发后立即关闭
                 if (map.isLongPressReady) {
                     map.Map.SendLongClicked(coordinate.ToUnity());
                     map.isLongPressReady = false;

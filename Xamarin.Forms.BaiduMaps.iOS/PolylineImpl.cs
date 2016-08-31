@@ -9,7 +9,6 @@ using CoreLocation;
 using Foundation;
 
 using BMapMain;
-using BMapBase;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

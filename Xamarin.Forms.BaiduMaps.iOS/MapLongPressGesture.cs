@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
-using UIKit;
-using Foundation;
-using CoreGraphics;
+﻿using UIKit;
 
 using BMapMain;
 using Xamarin.Forms.Platform.iOS;
@@ -22,15 +17,9 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             public override bool ShouldBegin(UIGestureRecognizer recognizer)
             {
-                /*Map.SendLongClicked(
-                    Native.ConvertPoint(recognizer.LocationInView(recognizer.View), recognizer.View)
-                          .ToUnity()
-                );
-
-                Debug.WriteLine(recognizer.State);
-                return false;*/
+                // Notify the map a long press is beginning...
                 Map.isLongPressReady = true;
-                return false;
+                return false; // end the gesture
             }
         }
     }

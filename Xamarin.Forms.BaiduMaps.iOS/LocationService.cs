@@ -3,6 +3,7 @@
 using BMapBase;
 using BMapMain;
 using BMapLocation;
+
 using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS

@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 using Android.Content;
 using Com.Baidu.Location;
-using Xamarin.Forms.Platform.Android;
 using BMap = Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
@@ -82,8 +81,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
-        //public event EventHandler<EventArgs> Starting;
-        //public event EventHandler<EventArgs> Stopped;
         public event EventHandler<LocationFailedEventArgs> Failed;
         public event EventHandler<LocationUpdatedEventArgs> LocationUpdated;
     }

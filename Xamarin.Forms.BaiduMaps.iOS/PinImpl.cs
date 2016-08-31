@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 
 using Foundation;
-using CoreLocation;
 
 using BMapMain;
 

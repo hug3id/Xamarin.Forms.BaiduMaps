@@ -35,8 +35,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             native.StopUserLocationService();
         }
 
-        //public event EventHandler<EventArgs> Starting;
-        //public event EventHandler<EventArgs> Stopped;
         public event EventHandler<LocationFailedEventArgs> Failed;
         public event EventHandler<LocationUpdatedEventArgs> LocationUpdated;
 

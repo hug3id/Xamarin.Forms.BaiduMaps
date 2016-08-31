@@ -24,8 +24,6 @@ namespace Xamarin.Forms.BaiduMaps
         void Start();
         void Stop();
 
-        //event EventHandler<EventArgs> Starting;
-        //event EventHandler<EventArgs> Stopped;
         event EventHandler<LocationUpdatedEventArgs> LocationUpdated;
         event EventHandler<LocationFailedEventArgs> Failed;
     }
