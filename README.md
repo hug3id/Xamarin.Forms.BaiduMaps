@@ -20,9 +20,10 @@ iOS Project configuration:
             <true />
         </dict>
         2.3 Add NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription
+
         3. Add whole mapapi.bundle to project
-        4. Open AppDelegate.cs, add init code before LoadApplication:
-        Xamarin.FormsBaiduMaps.Init(“your baidu ios key”);
+        4. Open AppDelegate.cs, add init code before LoadApplication:  
+           Xamarin.FormsBaiduMaps.Init(“your baidu ios key”);
 
 Android Project configuration:
 ###
