@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B512933-8B33-43BE-8878-317DB02B0D48}</ProjectGuid>
+    <ProjectTypeGuids>{10368E6C-D01B-4462-8E8B-01FC667A7035};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BMapBinding.Droid</RootNamespace>
+    <AssemblyName>BMapBinding.Droid</AssemblyName>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Additions\AboutAdditions.txt" />
+    <None Include="Jars\AboutJars.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="Transforms\EnumFields.xml" />
+    <TransformFile Include="Transforms\EnumMethods.xml" />
+    <TransformFile Include="Transforms\Metadata.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_base_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_base_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_base_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_base_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_base_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_map_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_map_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_map_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_map_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_map_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\liblocSDK7.so" />
+    <EmbeddedNativeLibrary Include="armeabi\liblocSDK7.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\liblocSDK7.so" />
+    <EmbeddedNativeLibrary Include="x86\liblocSDK7.so" />
+    <EmbeddedNativeLibrary Include="x86_64\liblocSDK7.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_util_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_util_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_util_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_util_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_util_v4_0_0.so" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="arm64-v8a\" />
+    <Folder Include="armeabi\" />
+    <Folder Include="armeabi-v7a\" />
+    <Folder Include="Jars\" />
+    <Folder Include="x86\" />
+    <Folder Include="x86_64\" />
+    <Folder Include="arm64-v8a\" />
+    <Folder Include="armeabi\" />
+    <Folder Include="armeabi-v7a\" />
+    <Folder Include="Jars\" />
+    <Folder Include="x86\" />
+    <Folder Include="x86_64\" />
+    <Folder Include="arm64-v8a\" />
+    <Folder Include="armeabi\" />
+    <Folder Include="armeabi-v7a\" />
+    <Folder Include="Jars\" />
+    <Folder Include="x86\" />
+    <Folder Include="x86_64\" />
+    <Folder Include="arm64-v8a\" />
+    <Folder Include="armeabi\" />
+    <Folder Include="armeabi-v7a\" />
+    <Folder Include="Jars\" />
+    <Folder Include="x86\" />
+    <Folder Include="x86_64\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\BaiduLBS_Android.jar" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
+</Project>

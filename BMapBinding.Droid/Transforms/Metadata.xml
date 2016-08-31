@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr name="managedName" path="/api/package[@name='com.baidu.mapapi']/class[@name='VersionInfo']/field[@name='VERSION_INFO']">
+		VersionInfos
+	</attr>
+	<attr name="managedName" path="/api/package[@name='com.baidu.location']/class[@name='Address']/field[@name='address']">
+		AddressName
+	</attr>
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/class[@name='A']/field[@name='a']">
+		_a
+	</attr>
+
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/class[@name='D']/field[@name='d']">
+		_d
+	</attr>
+
+</metadata>
