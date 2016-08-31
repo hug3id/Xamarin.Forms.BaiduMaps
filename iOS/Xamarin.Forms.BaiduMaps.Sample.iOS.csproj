@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{06A4259E-8F5B-4539-AE55-2B2D736EA678}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Xamarin.Forms.BaiduMaps.Sample.iOS</RootNamespace>
+    <AssemblyName>XamarinFormsBaiduMapsSampleiOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
+    <OptimizePNGs>true</OptimizePNGs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.3.1.114\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.3.1.114\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.1.114\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.3.1.114\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\mapapi.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Forms.BaiduMaps.Sample\Xamarin.Forms.BaiduMaps.Sample.csproj">
+      <Project>{BAF2B022-2547-4297-9DD1-F053992EBF43}</Project>
+      <Name>Xamarin.Forms.BaiduMaps.Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Forms.BaiduMaps.iOS\Xamarin.Forms.BaiduMaps.iOS.csproj">
+      <Project>{03A93561-6EF7-4EEC-9C2C-C58CD2AF3196}</Project>
+      <Name>Xamarin.Forms.BaiduMaps.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mapapi.bundle\files\Beijing, China.gpx" />
+    <BundleResource Include="Resources\mapapi.bundle\files\channel" />
+    <BundleResource Include="Resources\mapapi.bundle\files\CustomIndex" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVDirectory.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVDirectory_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotMap.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotMap_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVSDirectory.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVSDirectory_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVVersion.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVVersion_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\baseindoormap.sty" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\DVIndoor.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\IndoorResPack.rs" />
+    <BundleResource Include="Resources\mapapi.bundle\files\mapstyle.sty" />
+    <BundleResource Include="Resources\mapapi.bundle\files\ResPack.rs" />
+    <BundleResource Include="Resources\mapapi.bundle\files\satellitestyle.sty" />
+    <BundleResource Include="Resources\mapapi.bundle\files\trafficstyle.sty" />
+    <BundleResource Include="Resources\mapapi.bundle\images\baidumap_logo.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\baidumap_logo%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\bnavi_icon_location_fixed.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\bnavi_icon_location_fixed%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\direction_wheel.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\direction_wheel%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_left.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_left%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_left_highlighted.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_left_highlighted%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right_highlighted.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right_highlighted%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone2.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone2%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_center_point.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_center_point%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_compass.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_compass%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_compass_background.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_compass_background%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_direction.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_direction%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_line_nofocus.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_bus.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_bus%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_end.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_end%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_rail.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_rail%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_start.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_start%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_waypoint.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_nav_waypoint%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_left.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_left%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_left_highlighted.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_left_highlighted%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right_highlighted.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right_highlighted%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\line_texture.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\lineDashTexture.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_green.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_green%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_purple.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_purple%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_red.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\pin_red%402x.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+</Project>
