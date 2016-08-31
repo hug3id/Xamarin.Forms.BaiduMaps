@@ -6,9 +6,10 @@ iOS Project configuration:
         1. Right click project, enter Options->iOS Build
         1.1 Linker behavior choose 'LinkALL'
         1.2 Additional mtouch arguments:
-        -gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore  
-        -framework CoreText -framework CoreLocation -framework SystemConfiguration -framework CoreTelephony -framework OpenGLES  
-        -framework Foundation -framework Security -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -ObjC"
+        -gcc_flags "-L${ProjectDir} -framework MapKit -framework CoreMotion -framework CoreGraphics
+        -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration  
+        -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security  
+        -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -ObjC"
 
         2. Open Info.plist
         2.1 Bundle identifier must accord with your baidu key
