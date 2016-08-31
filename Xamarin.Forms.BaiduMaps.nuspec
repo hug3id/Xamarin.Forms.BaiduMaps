@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata minClientVersion="2.8.3">
+		<id>Xamarin.Forms.BaiduMaps</id>
+		<title>Xamarin.Forms.BaiduMaps</title>
+		<version>1.0.0.1</version>
+		<releaseNotes>
+# 1.0.0.1 alpha
+		</releaseNotes>
+		<authors>_hug3id</authors>
+		<copyright>_hug3id 2016</copyright>
+		<!--<iconUrl></iconUrl>-->
+        <licenseUrl>https://github.com/hug3id/Xamarin.Forms.BaiduMaps/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/hug3id/Xamarin.Forms.BaiduMaps</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A simply packaging for baidu maps sdk(android v4.0/ios v3.0)</description>
+		<summary>A simply packaging for baidu maps(android v4.0/ios v3.0)</summary>
+		<tags>xamarin forms maps xamarinforms xamarinformsmaps xamarin.forms.maps baidu baidumap</tags>
+	<dependencies>
+      <group>
+        <dependency id="Xamarin.Forms" version="2.1.0.6529" />
+      </group>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="Xamarin.Android.Support.v7.MediaRouter" version="23.3.0"/>
+        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="23.3.0"/>
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+      </group>
+	</dependencies>
+	</metadata>
+	<files>
+		<!--Core-->
+		<file src="Xamarin.Forms.BaiduMaps\bin\Release\Xamarin.Forms.BaiduMaps.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Xamarin.Forms.BaiduMaps.dll" />
+
+        <!--Xamarin.Android-->
+        <file src="Xamarin.Forms.BaiduMaps\bin\Release\Xamarin.Forms.BaiduMaps.dll" target="lib\MonoAndroid10\Xamarin.Forms.BaiduMaps.dll" />
+		<file src="Xamarin.Forms.BaiduMaps.Droid\bin\Release\Xamarin.Forms.BaiduMaps.Droid.dll" target="lib\MonoAndroid10\Xamarin.Forms.BaiduMaps.Droid.dll" />
+		<file src="Xamarin.Forms.BaiduMaps.Droid\bin\Release\BMapBinding.Droid.dll" target="lib\MonoAndroid10\BMapBinding.Droid.dll" />
+
+		<!--Xamarin.iOS-->
+		<file src="Xamarin.Forms.BaiduMaps\bin\Release\Xamarin.Forms.BaiduMaps.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.BaiduMaps.dll" />
+		<file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\Xamarin.Forms.BaiduMaps.iOS.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.BaiduMaps.iOS.dll" />
+		<file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\BMapBase.iOS.dll" target="lib\Xamarin.iOS10\BMapBase.iOS.dll" />
+        <file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\BMapMain.iOS.dll" target="lib\Xamarin.iOS10\BMapMain.iOS.dll" />
+        <file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\BMapLocation.iOS.dll" target="lib\Xamarin.iOS10\BMapLocation.iOS.dll" />
+
+        <!--uap-->
+	</files>
+</package>
