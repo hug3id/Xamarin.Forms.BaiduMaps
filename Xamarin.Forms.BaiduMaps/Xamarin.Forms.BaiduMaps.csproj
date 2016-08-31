@@ -41,14 +41,11 @@
     <Compile Include="Polyline.cs" />
     <Compile Include="BaseItemImpl.cs" />
     <Compile Include="XImage.cs" />
-    <Compile Include="MapLongClickedEventArgs.cs" />
-    <Compile Include="MapDoubleClickedEventArgs.cs" />
-    <Compile Include="MapBlankClickedEventArgs.cs" />
     <Compile Include="Coordinate.cs" />
-    <Compile Include="MapPoiClickedEventArgs.cs" />
     <Compile Include="OfflineMap.cs" />
     <Compile Include="LocationService.cs" />
     <Compile Include="BindableObjectEx.cs" />
+    <Compile Include="MapEvents.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
