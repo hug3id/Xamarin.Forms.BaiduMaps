@@ -11,30 +11,9 @@ namespace Xamarin.Forms.BaiduMaps.Sample
 {
     public partial class SamplePage : ContentPage
 	{
-        //Map map;
         public SamplePage()
         {
             InitializeComponent();
-
-            /*Content = new StackLayout {
-                Children = { new Map { } }
-            };*/
-
-            /*map = new Map();
-            RelativeLayout layout = new RelativeLayout();
-            layout.Children.Add(
-                map,
-                Constraint.Constant(0),
-                Constraint.Constant(0));
-            //Constraint.Constant(UIScreen.),
-            //Constraint.Constant(567));
-
-            layout.Children.Add(
-                Content,
-                Constraint.Constant(0),
-                Constraint.Constant(0));
-
-            Content = layout;*/
 
             map.Loaded += MapLoaded;
 
@@ -55,8 +34,6 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             var curr = offlineMap.Current;
             //offlineMap.Start(131);
             curr = offlineMap.Current;
-
-            //InitControls();
         }
 
         public void MapLoaded(object sender, EventArgs x)
@@ -64,20 +41,6 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             map.ShowScaleBar = true;
             InitLocationService();
             InitEvents();
-        }
-
-        public void InitControls()
-        {
-            /*RelativeLayout layout = new RelativeLayout();
-            layout.Children.Add(map, Constraint.Constant(0), Constraint.Constant(0),
-                                Constraint.Constant(375), Constraint.Constant(500));
-            layout.Children.Add(new Button { Text = "aaaaa", WidthRequest = 70, HeightRequest = 30, BackgroundColor=Color.White, Opacity=0.5 },
-                                Constraint.Constant(0),
-                                Constraint.Constant(0),
-                                Constraint.Constant(70),
-                                Constraint.Constant(70));
-            //map.
-            this.Content = layout; */
         }
 
         private static bool moved = false;
