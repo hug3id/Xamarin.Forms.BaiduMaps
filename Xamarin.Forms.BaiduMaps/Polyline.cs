@@ -45,14 +45,6 @@ namespace Xamarin.Forms.BaiduMaps
             get { return (ObservableCollection<Coordinate>)GetValue(PointsProperty); }
             set { SetValue(PointsProperty, value); }
         }
-
-        /*public Polyline(Coordinate[] coords)
-        {
-            Points = new Point[coords.Length];
-            for (int i = 0; i < coords.Length; i++) {
-                Points[i] = new Point { X = coords[i].Longitude, Y = coords[i].Latitude };
-            }
-        }*/
     }
 }
 

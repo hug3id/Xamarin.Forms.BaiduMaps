@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Xamarin.Forms.BaiduMaps.Sample
 {
@@ -37,6 +38,39 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             map.ShowScaleBar = true;
             InitLocationService();
             InitEvents();
+
+            Coordinate[] coords = new Coordinate[] {
+                new Coordinate(40.044, 116.391),
+                new Coordinate(39.861, 116.284),
+                new Coordinate(39.861, 116.468)
+            };
+
+            map.Polygons.Add(new Polygon {
+                Points = new ObservableCollection<Coordinate>(coords),
+                Color = Color.Blue,
+                FillColor = Color.Red,
+                Width = 2
+            });
+
+            map.Circles.Add(new Circle {
+                Coordinate = map.Center,
+                Color = Color.Green,
+                FillColor = Color.Yellow,
+                Radius = 200,
+                Width = 2
+            });
+
+            Task.Run(() => {
+                for (;;) {
+                    Task.Delay(1000).Wait();
+
+                    var p = map.Polygons[0].Points[0];
+                    p = new Coordinate(p.Latitude + 0.002, p.Longitude);
+                    map.Polygons[0].Points[0] = p;
+
+                    map.Circles[0].Radius += 100;
+                }
+            });
         }
 
         private static bool moved = false;
@@ -65,7 +99,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.ShowUserLocation = false;
                 }
                 else {
-                    map.UserTrackingMode = UserTrackingMode.FollowWithCompass;
+                    map.UserTrackingMode = UserTrackingMode.Follow;
                     map.ShowUserLocation = true;
                 }
             };

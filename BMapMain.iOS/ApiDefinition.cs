@@ -1480,7 +1480,7 @@ namespace BMapMain
 	{
 		// -(id)initWithCircle:(BMKCircle *)circle;
 		[Export("initWithCircle:")]
-		IntPtr Constructor(BMKCircle circle);
+		IntPtr Constructor(BMKOverlay circle);
 
 		// @property (readonly, nonatomic) BMKCircle * circle;
 		[Export("circle")]

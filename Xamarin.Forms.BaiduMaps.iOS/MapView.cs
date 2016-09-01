@@ -63,6 +63,17 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                         return view;
                     }
+                } else if (typeof(BMKCircle) == overlay.GetType())
+                {
+                    Circle circle = map.Map.Circles.Find(overlay);
+                    if (null != circle) {
+                        BMKCircleView view = new BMKCircleView(overlay);
+                        view.StrokeColor = circle.Color.ToUIColor();
+                        view.FillColor = circle.FillColor.ToUIColor();
+                        view.LineWidth = circle.Width;
+
+                        return view;
+                    }
                 }
 
                 Debug.WriteLine("MapViewViewForOverlay: " + overlay.GetType());
@@ -137,7 +148,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 if (BMKAnnotationViewDragState.Dragging == newState
                     && null != annotation)
                 {
-                    map.pointAnnotationImpl.NotifyUpdate(annotation);
+                    map.pinImpl.NotifyUpdate(annotation);
                     annotation.SendDrag(AnnotationDragState.Dragging);
                     return;
                 }
@@ -145,7 +156,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 if (BMKAnnotationViewDragState.Ending == newState
                     && null != annotation)
                 {
-                    map.pointAnnotationImpl.NotifyUpdate(annotation);
+                    map.pinImpl.NotifyUpdate(annotation);
                     annotation.SendDrag(AnnotationDragState.Ending);
                 }
             }

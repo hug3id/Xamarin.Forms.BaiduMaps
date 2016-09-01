@@ -67,7 +67,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 return;
             }
 
-            if (Annotation.TitleProperty.PropertyName == e.PropertyName)
+            if (Polyline.TitleProperty.PropertyName == e.PropertyName)
             {
                 return;
             }

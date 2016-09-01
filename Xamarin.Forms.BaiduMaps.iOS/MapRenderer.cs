@@ -14,9 +14,10 @@ namespace Xamarin.Forms.BaiduMaps.iOS
     public partial class MapRenderer : ViewRenderer<Map, BMKMapView>
     {
         internal bool isLongPressReady = true;
-        private readonly PinImpl pointAnnotationImpl = new PinImpl();
+        private readonly PinImpl pinImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
         private readonly PolygonImpl polygonImpl = new PolygonImpl();
+        private readonly CircleImpl circleImpl = new CircleImpl();
 
         protected override void Dispose(bool disposing)
         {
@@ -27,7 +28,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                     //var map = (Map)Element;
                 }
 
-                pointAnnotationImpl.Unregister(Map);
+                pinImpl.Unregister(Map);
                 polylineImpl.Unregister(Map);
                 polygonImpl.Unregister(Map);
 
@@ -85,14 +86,17 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 UpdateCenter();
                 UpdateShowScaleBar();
 
-                pointAnnotationImpl.Unregister(e.OldElement);
-                pointAnnotationImpl.Register(Map, NativeMap);
+                pinImpl.Unregister(e.OldElement);
+                pinImpl.Register(Map, NativeMap);
 
                 polylineImpl.Unregister(e.OldElement);
                 polylineImpl.Register(Map, NativeMap);
 
                 polygonImpl.Unregister(e.OldElement);
                 polygonImpl.Register(Map, NativeMap);
+
+                circleImpl.Unregister(e.OldElement);
+                circleImpl.Register(Map, NativeMap);
             }
         }
 

@@ -11,9 +11,10 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 {
     public partial class MapRenderer : ViewRenderer<Map, BMap.MapView>, BMap.BaiduMap.IOnMapLoadedCallback
     {
-        private readonly PinImpl pointAnnotationImpl = new PinImpl();
+        private readonly PinImpl pinImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
         private readonly PolygonImpl polygonImpl = new PolygonImpl();
+        private readonly CircleImpl circleImpl = new CircleImpl();
 
         protected override void Dispose(bool disposing)
         {
@@ -24,11 +25,13 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                     //var map = (Map)Element;
                 }
 
-                pointAnnotationImpl.Unregister(Map);
+                pinImpl.Unregister(Map);
                 polylineImpl.Unregister(Map);
+                polygonImpl.Unregister(Map);
+                circleImpl.Unregister(Map);
 
-                //NativeMap.Delegate = null;
                 NativeMap.Map.Clear();
+                NativeMap.OnDestroy();
                 NativeMap.Dispose();
             }
 
@@ -44,8 +47,15 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         {
             base.OnElementChanged(e);
 
+            var oldMapView = (BMap.MapView)Control;
             if (null != e.OldElement)
             {
+                //var old = (Map)e.OldElement;
+                if (null != oldMapView)
+                {
+                    oldMapView.OnDestroy();
+                    oldMapView.Dispose();
+                }
             }
 
             if (null != e.NewElement)
@@ -53,6 +63,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 if (null == Control)
                 {
                     SetNativeControl(new BMap.MapView(Context));
+                    NativeMap.OnResume();
                     Map.LocationService = new LocationServiceImpl(NativeMap.Map, Context);
 
                     NativeMap.Map.MapClick += (_, ex) => {
@@ -97,7 +108,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                     NativeMap.Map.MarkerDragEnd += (_, ex) => {
                         Pin pin = Map.Pins.Find(ex.P0);
                         if (null != pin) {
-                            pointAnnotationImpl.NotifyUpdate(pin);
+                            pinImpl.NotifyUpdate(pin);
                             pin.SendDrag(AnnotationDragState.Ending);
                         }
                     };
@@ -105,7 +116,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                     NativeMap.Map.MarkerDrag += (_, ex) => {
                         Pin pin = Map.Pins.Find(ex.P0);
                         if (null != pin) {
-                            pointAnnotationImpl.NotifyUpdate(pin);
+                            pinImpl.NotifyUpdate(pin);
                             pin.SendDrag(AnnotationDragState.Dragging);
                         }
                     };
@@ -131,14 +142,17 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 UpdateCenter();
                 UpdateShowScaleBar();
 
-                pointAnnotationImpl.Unregister(e.OldElement);
-                pointAnnotationImpl.Register(Map, NativeMap);
+                pinImpl.Unregister(e.OldElement);
+                pinImpl.Register(Map, NativeMap);
 
                 polylineImpl.Unregister(e.OldElement);
                 polylineImpl.Register(Map, NativeMap);
 
                 polygonImpl.Unregister(e.OldElement);
                 polygonImpl.Register(Map, NativeMap);
+
+                circleImpl.Unregister(e.OldElement);
+                circleImpl.Register(Map, NativeMap);
             }
         }
 

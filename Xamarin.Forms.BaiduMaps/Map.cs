@@ -162,6 +162,9 @@ namespace Xamarin.Forms.BaiduMaps
         public IList<Polygon> Polygons => polygons;
         private readonly ObservableCollection<Polygon> polygons = new ObservableCollection<Polygon>();
 
+        public IList<Circle> Circles => circles;
+        private readonly ObservableCollection<Circle> circles = new ObservableCollection<Circle>();
+
         public event EventHandler<MapBlankClickedEventArgs> BlankClicked;
         internal void SendBlankClicked(Coordinate pos)
         {
