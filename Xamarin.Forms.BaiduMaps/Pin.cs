@@ -6,7 +6,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         // Animate
         public static readonly BindableProperty AnimateProperty = BindableProperty.Create(
-            propertyName: "Animate",
+            propertyName: nameof(Animate),
             returnType: typeof(bool),
             declaringType: typeof(Pin),
             defaultValue: default(bool)
@@ -20,7 +20,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Draggable
         public static readonly BindableProperty DraggableProperty = BindableProperty.Create(
-            propertyName: "Draggable",
+            propertyName: nameof(Draggable),
             returnType: typeof(bool),
             declaringType: typeof(Pin),
             defaultValue: default(bool)
@@ -34,7 +34,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Enabled3D
         public static readonly BindableProperty Enabled3DProperty = BindableProperty.Create(
-            propertyName: "Enabled3D",
+            propertyName: nameof(Enabled3D),
             returnType: typeof(bool),
             declaringType: typeof(Pin),
             defaultValue: default(bool)
@@ -48,7 +48,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Image
         public static readonly BindableProperty ImageProperty = BindableProperty.Create(
-            propertyName: "Image",
+            propertyName: nameof(Image),
             returnType: typeof(XImage),
             declaringType: typeof(Pin),
             defaultValue: default(XImage)

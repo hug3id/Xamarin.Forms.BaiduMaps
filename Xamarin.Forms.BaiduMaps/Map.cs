@@ -29,7 +29,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // MapType
         public static readonly BindableProperty MapTypeProperty = BindableProperty.Create(
-            propertyName: "MapType",
+            propertyName: nameof(MapType),
             returnType: typeof(MapType),
             declaringType: typeof(Map),
             defaultValue: MapType.Standard
@@ -42,7 +42,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // UserTrackingMode
         public static readonly BindableProperty UserTrackingModeProperty = BindableProperty.Create(
-            propertyName: "UserTrackingMode",
+            propertyName: nameof(UserTrackingMode),
             returnType: typeof(UserTrackingMode),
             declaringType: typeof(Map),
             defaultValue: UserTrackingMode.None
@@ -56,7 +56,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // ShowUserLocation
         public static readonly BindableProperty ShowUserLocationProperty = BindableProperty.Create(
-            propertyName: "ShowUserLocation",
+            propertyName: nameof(ShowUserLocation),
             returnType: typeof(bool),
             declaringType: typeof(Map),
             defaultValue: false
@@ -69,7 +69,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // CompassPosition
         public static readonly BindableProperty CompassPositionProperty = BindableProperty.Create(
-            propertyName: "CompassPosition",
+            propertyName: nameof(CompassPosition),
             returnType: typeof(Point),
             declaringType: typeof(Map),
             defaultValue: new Point(40, 40)
@@ -83,7 +83,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // ZoomLevel
         public static readonly BindableProperty ZoomLevelProperty = BindableProperty.Create(
-            propertyName: "ZoomLevel",
+            propertyName: nameof(ZoomLevel),
             returnType: typeof(float),
             declaringType: typeof(Map),
             defaultValue: 11f
@@ -97,7 +97,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // MinZoomLevel
         public static readonly BindableProperty MinZoomLevelProperty = BindableProperty.Create(
-            propertyName: "MinZoomLevel",
+            propertyName: nameof(MinZoomLevel),
             returnType: typeof(float),
             declaringType: typeof(Map),
             defaultValue: 3f
@@ -111,7 +111,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // MaxZoomLevel
         public static readonly BindableProperty MaxZoomLevelProperty = BindableProperty.Create(
-            propertyName: "MaxZoomLevel",
+            propertyName: nameof(MaxZoomLevel),
             returnType: typeof(float),
             declaringType: typeof(Map),
             defaultValue: 22f
@@ -125,7 +125,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Center
         public static readonly BindableProperty CenterProperty = BindableProperty.Create(
-            propertyName: "Center",
+            propertyName: nameof(Center),
             returnType: typeof(Coordinate),
             declaringType: typeof(Map),
             defaultValue: new Coordinate(28.693, 115.958)
@@ -139,7 +139,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // ShowScaleBar
         public static readonly BindableProperty ShowScaleBarProperty = BindableProperty.Create(
-            propertyName: "ShowScaleBar",
+            propertyName: nameof(ShowScaleBar),
             returnType: typeof(bool),
             declaringType: typeof(Map),
             defaultValue: false

@@ -6,7 +6,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         // Coordinate
         public static readonly BindableProperty CoordinateProperty = BindableProperty.Create(
-            propertyName: "Coordinate",
+            propertyName: nameof(Coordinate),
             returnType: typeof(Coordinate),
             declaringType: typeof(Annotation),
             defaultValue: default(Coordinate)
@@ -20,7 +20,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Title
         public static readonly BindableProperty TitleProperty = BindableProperty.Create(
-            propertyName: "Title",
+            propertyName: nameof(Title),
             returnType: typeof(string),
             declaringType: typeof(Annotation),
             defaultValue: default(string)

@@ -6,7 +6,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         // Color
         public static readonly BindableProperty ColorProperty = BindableProperty.Create(
-            propertyName: "Color",
+            propertyName: nameof(Color),
             returnType: typeof(Color),
             declaringType: typeof(Polyline),
             defaultValue: default(Color)
@@ -20,7 +20,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Width
         public static readonly BindableProperty WidthProperty = BindableProperty.Create(
-            propertyName: "Width",
+            propertyName: nameof(Width),
             returnType: typeof(int),
             declaringType: typeof(Polyline),
             defaultValue: default(int)
@@ -34,7 +34,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Points
         public static readonly BindableProperty PointsProperty = BindableProperty.Create(
-            propertyName: "Points",
+            propertyName: nameof(Points),
             returnType: typeof(ObservableCollection<Coordinate>),
             declaringType: typeof(Polyline),
             defaultValue: default(ObservableCollection<Coordinate>)

@@ -6,7 +6,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         // FillColor
         public static readonly BindableProperty FillColorProperty = BindableProperty.Create(
-            propertyName: "FillColor",
+            propertyName: nameof(FillColor),
             returnType: typeof(Color),
             declaringType: typeof(Polygon),
             defaultValue: default(Color)

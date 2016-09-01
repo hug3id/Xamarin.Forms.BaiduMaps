@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
 
 namespace Xamarin.Forms.BaiduMaps
 {
@@ -6,7 +6,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         // Color
         public static readonly BindableProperty ColorProperty = BindableProperty.Create(
-            propertyName: "Color",
+            propertyName: nameof(Color),
             returnType: typeof(Color),
             declaringType: typeof(Circle),
             defaultValue: default(Color)
@@ -20,7 +20,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // Width
         public static readonly BindableProperty WidthProperty = BindableProperty.Create(
-            propertyName: "Width",
+            propertyName: nameof(Width),
             returnType: typeof(int),
             declaringType: typeof(Circle),
             defaultValue: default(int)
@@ -48,7 +48,7 @@ namespace Xamarin.Forms.BaiduMaps
 
         // FillColor
         public static readonly BindableProperty FillColorProperty = BindableProperty.Create(
-            propertyName: "FillColor",
+            propertyName: nameof(FillColor),
             returnType: typeof(Color),
             declaringType: typeof(Circle),
             defaultValue: default(Color)
