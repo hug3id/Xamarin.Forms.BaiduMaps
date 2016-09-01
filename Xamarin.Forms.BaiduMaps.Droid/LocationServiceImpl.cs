@@ -75,7 +75,8 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                         Coordinate = new Coordinate(loc.Latitude, loc.Longitude),
                         Direction = loc.Direction,
                         Altitude = location.Altitude,
-                        Accuracy = loc.Accuracy
+                        Accuracy = loc.Accuracy,
+                        Satellites = loc.SatellitesNum
                     });
                     break;
             }

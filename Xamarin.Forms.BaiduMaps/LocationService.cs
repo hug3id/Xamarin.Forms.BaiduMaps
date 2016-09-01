@@ -8,6 +8,7 @@ namespace Xamarin.Forms.BaiduMaps
         public double Direction { get; internal set; }
         public double Altitude { get; internal set; }
         public double Accuracy { get; internal set; }
+        public int Satellites { get; internal set; }
     }
 
     public class LocationFailedEventArgs : EventArgs

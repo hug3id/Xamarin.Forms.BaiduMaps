@@ -66,7 +66,6 @@
     <Compile Include="PinImpl.cs" />
     <Compile Include="PolylineImpl.cs" />
     <Compile Include="XImageImpl.cs" />
-    <Compile Include="LocationService.cs" />
     <Compile Include="MapLongPressGesture.cs" />
     <Compile Include="CLLocationCoordinate2DEx.cs" />
     <Compile Include="FormsBaiduMaps.cs" />

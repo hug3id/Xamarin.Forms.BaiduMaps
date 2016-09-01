@@ -62,7 +62,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 Direction = userLocation.Heading?.TrueHeading ?? double.NaN,
                 Altitude = userLocation.Location.Altitude,
                 Accuracy = Math.Max(userLocation.Location.HorizontalAccuracy,
-                                    userLocation.Location.VerticalAccuracy)
+                                    userLocation.Location.VerticalAccuracy),
+                Satellites = -1
             });
         }
 
