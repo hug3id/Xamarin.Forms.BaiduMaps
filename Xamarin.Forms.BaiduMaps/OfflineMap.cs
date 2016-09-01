@@ -78,6 +78,7 @@ namespace Xamarin.Forms.BaiduMaps
         List<OfflinePackage> HotList { get; }
         List<OfflinePackage> AllList { get; }
         List<OfflinePackageInfo> Current { get; }
+        List<OfflinePackage> Search(string city);
 
         bool Start(int id);
         bool Pause(int id);

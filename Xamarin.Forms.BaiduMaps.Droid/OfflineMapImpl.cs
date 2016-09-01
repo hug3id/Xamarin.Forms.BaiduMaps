@@ -38,6 +38,16 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
+        public List<OfflinePackage> Search(string city)
+        {
+            List<OfflinePackage> list = new List<OfflinePackage>();
+            foreach (MKOLSearchRecord record in native.SearchCity(city)) {
+                list.Add(record.ToUnity());
+            }
+
+            return list;
+        }
+
         public List<OfflinePackageInfo> Current
         {
             get {
