@@ -16,6 +16,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         internal bool isLongPressReady = true;
         private readonly PinImpl pointAnnotationImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
+        private readonly PolygonImpl polygonImpl = new PolygonImpl();
 
         protected override void Dispose(bool disposing)
         {
@@ -28,6 +29,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                 pointAnnotationImpl.Unregister(Map);
                 polylineImpl.Unregister(Map);
+                polygonImpl.Unregister(Map);
 
                 NativeMap.Delegate = null;
             }
@@ -55,8 +57,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (null != e.NewElement)
             {
-                if (null == Control)
-                {
+                if (null == Control) {
                     SetNativeControl(new BMKMapView());
 
                     Map.LocationService = new LocationServiceImpl(NativeMap);
@@ -86,11 +87,12 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                 pointAnnotationImpl.Unregister(e.OldElement);
                 pointAnnotationImpl.Register(Map, NativeMap);
-                //pointAnnotationImpl.NotifyReset();
 
                 polylineImpl.Unregister(e.OldElement);
                 polylineImpl.Register(Map, NativeMap);
-                //polylineImpl.NotifyReset();
+
+                polygonImpl.Unregister(e.OldElement);
+                polygonImpl.Register(Map, NativeMap);
             }
         }
 

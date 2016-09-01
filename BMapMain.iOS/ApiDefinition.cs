@@ -1447,7 +1447,7 @@ namespace BMapMain
 	{
 		// -(id)initWithPolygon:(BMKPolygon *)polygon;
 		[Export("initWithPolygon:")]
-		IntPtr Constructor(BMKPolygon polygon);
+		IntPtr Constructor(BMKOverlay polygon);
 
 		// @property (readonly, nonatomic) BMKPolygon * polygon;
 		[Export("polygon")]

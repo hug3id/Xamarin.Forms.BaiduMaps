@@ -13,6 +13,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
     {
         private readonly PinImpl pointAnnotationImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
+        private readonly PolygonImpl polygonImpl = new PolygonImpl();
 
         protected override void Dispose(bool disposing)
         {
@@ -27,6 +28,8 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 polylineImpl.Unregister(Map);
 
                 //NativeMap.Delegate = null;
+                NativeMap.Map.Clear();
+                NativeMap.Dispose();
             }
 
             base.Dispose(disposing);
@@ -130,11 +133,12 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
                 pointAnnotationImpl.Unregister(e.OldElement);
                 pointAnnotationImpl.Register(Map, NativeMap);
-                //pointAnnotationImpl.NotifyReset();
 
                 polylineImpl.Unregister(e.OldElement);
                 polylineImpl.Register(Map, NativeMap);
-                //polylineImpl.NotifyReset();
+
+                polygonImpl.Unregister(e.OldElement);
+                polygonImpl.Register(Map, NativeMap);
             }
         }
 

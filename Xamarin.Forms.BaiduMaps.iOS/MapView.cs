@@ -44,15 +44,24 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             public override BMKOverlayView MapViewViewForOverlay(BMKMapView mapView, BMKOverlay overlay)
             {
-                if (typeof(BMKPolyline) == overlay.GetType())
-                {
+                if (typeof(BMKPolyline) == overlay.GetType()) {
                     Polyline poly = map.Map.Polylines.Find(overlay);
                     if (null != poly) {
-                        BMKPolylineView lineView = new BMKPolylineView(overlay);
-                        lineView.StrokeColor = poly.Color.ToUIColor();
-                        lineView.LineWidth = poly.Width;
+                        BMKPolylineView view = new BMKPolylineView(overlay);
+                        view.StrokeColor = poly.Color.ToUIColor();
+                        view.LineWidth = poly.Width;
 
-                        return lineView;
+                        return view;
+                    }
+                } else if (typeof(BMKPolygon) == overlay.GetType()) {
+                    Polygon poly = map.Map.Polygons.Find(overlay);
+                    if (null != poly) {
+                        BMKPolygonView view = new BMKPolygonView(overlay);
+                        view.StrokeColor = poly.Color.ToUIColor();
+                        view.FillColor = poly.FillColor.ToUIColor();
+                        view.LineWidth = poly.Width;
+
+                        return view;
                     }
                 }
 

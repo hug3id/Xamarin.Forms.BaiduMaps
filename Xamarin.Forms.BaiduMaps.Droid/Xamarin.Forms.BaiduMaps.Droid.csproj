@@ -93,6 +93,7 @@
     <Compile Include="FormsBaiduMaps.cs" />
     <Compile Include="OfflineMapImpl.cs" />
     <Compile Include="ViewEx.cs" />
+    <Compile Include="PolygonImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

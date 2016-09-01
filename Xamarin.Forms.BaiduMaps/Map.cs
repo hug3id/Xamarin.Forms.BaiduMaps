@@ -155,13 +155,12 @@ namespace Xamarin.Forms.BaiduMaps
 
         public IList<Pin> Pins => pins;
         private readonly ObservableCollection<Pin> pins = new ObservableCollection<Pin>();
-        /*private void AnnotationsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            Debug.WriteLine("AnnotationsCollectionChanged");
-        }*/
 
         public IList<Polyline> Polylines => polylines;
         private readonly ObservableCollection<Polyline> polylines = new ObservableCollection<Polyline>();
+
+        public IList<Polygon> Polygons => polygons;
+        private readonly ObservableCollection<Polygon> polygons = new ObservableCollection<Polygon>();
 
         public event EventHandler<MapBlankClickedEventArgs> BlankClicked;
         internal void SendBlankClicked(Coordinate pos)

@@ -46,6 +46,7 @@
     <Compile Include="LocationService.cs" />
     <Compile Include="BindableObjectEx.cs" />
     <Compile Include="MapEvents.cs" />
+    <Compile Include="Polygon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

@@ -11,46 +11,46 @@ using BMap = Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class PolylineImpl : BaseItemImpl<Polyline, BMap.MapView, BMap.Polyline>
+    internal class PolygonImpl : BaseItemImpl<Polygon, BMap.MapView, BMap.Polygon>
     {
-        protected override IList<Polyline> GetItems(Map map) => map.Polylines;
+        protected override IList<Polygon> GetItems(Map map) => map.Polygons;
 
-        protected override BMap.Polyline CreateNativeItem(Polyline item)
+        protected override BMap.Polygon CreateNativeItem(Polygon item)
         {
             List<LatLng> points = new List<LatLng>();
             foreach (var point in item.Points) {
                 points.Add(point.ToNative());
             }
 
-            PolylineOptions options = new PolylineOptions()
+            PolygonOptions options = new PolygonOptions()
                 .InvokePoints(points)
-                .InvokeWidth(item.Width)
-                .InvokeColor(item.Color.ToAndroid());
+                .InvokeStroke(new Stroke(item.Width, item.Color.ToAndroid()))
+                .InvokeFillColor(item.FillColor.ToAndroid());
 
-            BMap.Polyline polyline = (BMap.Polyline)NativeMap.Map.AddOverlay(options);
-            item.NativeObject = polyline;
+            BMap.Polygon polygon = (BMap.Polygon)NativeMap.Map.AddOverlay(options);
+            item.NativeObject = polygon;
 
             ((INotifyCollectionChanged)(IList)item.Points).CollectionChanged += (sender, e) => {
-                OnItemPropertyChanged(item, new PropertyChangedEventArgs(Polyline.PointsProperty.PropertyName));
+                OnItemPropertyChanged(item, new PropertyChangedEventArgs(Polygon.PointsProperty.PropertyName));
             };
 
-            return polyline;
+            return polygon;
         }
 
-        protected override void UpdateNativeItem(Polyline item)
+        protected override void UpdateNativeItem(Polygon item)
         {
             throw new NotImplementedException();
         }
 
-        protected override void RemoveNativeItem(Polyline item)
+        protected override void RemoveNativeItem(Polygon item)
         {
-            ((BMap.Polyline)item.NativeObject).Remove();
+            ((BMap.Polygon)item.NativeObject).Remove();
         }
 
-        protected override void RemoveNativeItems(IList<Polyline> items)
+        protected override void RemoveNativeItems(IList<Polygon> items)
         {
-            foreach (Polyline item in items) {
-                ((BMap.Polyline)item.NativeObject).Remove();
+            foreach (Polygon item in items) {
+                ((BMap.Polygon)item.NativeObject).Remove();
             }
         }
 
@@ -61,19 +61,17 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         protected override void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            Polyline item = (Polyline)sender;
-            BMap.Polyline native = (BMap.Polyline)item?.NativeObject;
+            Polygon item = (Polygon)sender;
+            BMap.Polygon native = (BMap.Polygon)item?.NativeObject;
             if (null == native) {
                 return;
             }
 
-            if (Annotation.TitleProperty.PropertyName == e.PropertyName)
-            {
+            if (Polygon.TitleProperty.PropertyName == e.PropertyName) {
                 return;
             }
 
-            if (Polyline.PointsProperty.PropertyName == e.PropertyName)
-            {
+            if (Polygon.PointsProperty.PropertyName == e.PropertyName) {
                 List<LatLng> points = new List<LatLng>();
                 foreach (Coordinate point in item.Points) {
                     points.Add(point.ToNative());
