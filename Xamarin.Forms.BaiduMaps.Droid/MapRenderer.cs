@@ -158,6 +158,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         public void OnMapLoaded()
         {
+            Map.Projection = new ProjectionImpl(NativeMap);
             Map.SendLoaded();
         }
 

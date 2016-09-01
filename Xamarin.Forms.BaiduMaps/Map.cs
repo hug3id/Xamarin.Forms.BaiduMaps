@@ -152,6 +152,7 @@ namespace Xamarin.Forms.BaiduMaps
         }
 
         public ILocationService LocationService { get; internal set; }
+        public IProjection Projection { get; internal set; }
 
         public IList<Pin> Pins => pins;
         private readonly ObservableCollection<Pin> pins = new ObservableCollection<Pin>();

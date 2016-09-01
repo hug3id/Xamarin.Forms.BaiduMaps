@@ -76,6 +76,7 @@
     <Compile Include="PolygonImpl.cs" />
     <Compile Include="CircleImpl.cs" />
     <Compile Include="CalculateUtilsImpl.cs" />
+    <Compile Include="ProjectionImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Forms.BaiduMaps\Xamarin.Forms.BaiduMaps.csproj">

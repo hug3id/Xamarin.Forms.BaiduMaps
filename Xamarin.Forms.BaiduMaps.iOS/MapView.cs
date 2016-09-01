@@ -164,6 +164,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             public override void MapViewDidFinishLoading(BMKMapView mapView)
             {
                 mapView.ViewWillAppear();
+                map.Map.Projection = new ProjectionImpl(mapView);
                 map.Map.SendLoaded();
             }
 

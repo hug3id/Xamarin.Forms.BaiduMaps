@@ -75,6 +75,11 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.Circles[0].Radius += 100;
                 }
             });
+
+            // 坐标转换
+            IProjection proj = map.Projection;
+            var coord = proj.ToCoordinate(new Point(100, 100));
+            Debug.WriteLine(proj.ToScreen(coord));
         }
 
         private static bool moved = false;
