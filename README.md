@@ -12,9 +12,7 @@ A simply packaging for baidu maps sdk(android v4.0/ios v3.0)
 
 iOS Project configuration:
 ###
-        1. Right click project, enter Options->iOS Build
-        1.1 Linker behavior choose 'LinkALL'
-        1.2 Additional mtouch arguments:
+        1. Right click project, enter Options->iOS Build->Additional mtouch arguments:  
         -gcc_flags "-L${ProjectDir} -framework MapKit -framework CoreMotion -framework CoreGraphics
         -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration  
         -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security  
