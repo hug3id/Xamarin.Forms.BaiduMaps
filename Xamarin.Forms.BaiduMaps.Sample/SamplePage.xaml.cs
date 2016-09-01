@@ -48,7 +48,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             map.Polygons.Add(new Polygon {
                 Points = new ObservableCollection<Coordinate>(coords),
                 Color = Color.Blue,
-                FillColor = Color.Red,
+                FillColor = Color.Red.MultiplyAlpha(0.7),
                 Width = 2
             });
 

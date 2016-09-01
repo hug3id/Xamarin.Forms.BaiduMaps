@@ -143,7 +143,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Map.CompassPositionProperty.PropertyName == e.PropertyName)
             {
-                //Debug.WriteLine("CompassPosition = " + Map.CompassPosition);
+                Debug.WriteLine("CompassPosition = " + Map.CompassPosition);
                 UpdateCompassPosition();
                 return;
             }
