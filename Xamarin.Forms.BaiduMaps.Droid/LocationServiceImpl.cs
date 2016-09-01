@@ -7,7 +7,7 @@ using BMap = Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, LocationService
+    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, ILocationService
     {
         private LocationClient native;
         private BMap.BaiduMap map;

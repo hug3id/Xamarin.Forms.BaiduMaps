@@ -75,6 +75,7 @@
     <Compile Include="ViewEx.cs" />
     <Compile Include="PolygonImpl.cs" />
     <Compile Include="CircleImpl.cs" />
+    <Compile Include="CalculateUtilsImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Forms.BaiduMaps\Xamarin.Forms.BaiduMaps.csproj">
@@ -92,6 +93,10 @@
     <ProjectReference Include="..\BMapMain.iOS\BMapMain.iOS.csproj">
       <Project>{5A9AE8C6-8824-4560-91F7-801252557A38}</Project>
       <Name>BMapMain.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMapUtils.iOS\BMapUtils.iOS.csproj">
+      <Project>{5AF56151-5C6A-4904-907B-DC053676F286}</Project>
+      <Name>BMapUtils.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -31,4 +31,5 @@ using Xamarin.Forms.BaiduMaps.Droid;
 
 [assembly: ExportRenderer(typeof(Map), typeof(MapRenderer))]
 [assembly: Dependency(typeof(OfflineMapImpl))]
+[assembly: Dependency(typeof(CalculateUtilsImpl))]
 

@@ -7,7 +7,7 @@ using BMapLocation;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
-    internal class LocationServiceImpl : BMKLocationServiceDelegate, LocationService
+    internal class LocationServiceImpl : BMKLocationServiceDelegate, ILocationService
     {
         private BMKLocationService native;
         private BMKMapView mapView;
@@ -25,12 +25,12 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             native.Delegate = null;
         }
 
-        void LocationService.Start()
+        void ILocationService.Start()
         {
             native.StartUserLocationService();
         }
 
-        void LocationService.Stop()
+        void ILocationService.Stop()
         {
             native.StopUserLocationService();
         }

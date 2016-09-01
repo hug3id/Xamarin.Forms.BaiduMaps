@@ -42,12 +42,13 @@
     <Compile Include="BaseItemImpl.cs" />
     <Compile Include="XImage.cs" />
     <Compile Include="Coordinate.cs" />
-    <Compile Include="OfflineMap.cs" />
-    <Compile Include="LocationService.cs" />
+    <Compile Include="IOfflineMap.cs" />
+    <Compile Include="ILocationService.cs" />
     <Compile Include="BindableObjectEx.cs" />
     <Compile Include="MapEvents.cs" />
     <Compile Include="Polygon.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="ICalculateUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

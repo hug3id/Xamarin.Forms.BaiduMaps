@@ -20,7 +20,7 @@ namespace Xamarin.Forms.BaiduMaps
         }
     }
 
-    public interface LocationService
+    public interface ILocationService
     {
         void Start();
         void Stop();

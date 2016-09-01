@@ -73,7 +73,7 @@ namespace Xamarin.Forms.BaiduMaps
         }
     }
 
-    public interface OfflineMap
+    public interface IOfflineMap
     {
         List<OfflinePackage> HotList { get; }
         List<OfflinePackage> AllList { get; }

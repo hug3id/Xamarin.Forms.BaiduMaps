@@ -5,7 +5,7 @@ using Com.Baidu.Mapapi.Map.Offline;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class OfflineMapImpl : Java.Lang.Object, OfflineMap, IMKOfflineMapListener
+    internal class OfflineMapImpl : Java.Lang.Object, IOfflineMap, IMKOfflineMapListener
     {
         private MKOfflineMap native;
         public OfflineMapImpl()

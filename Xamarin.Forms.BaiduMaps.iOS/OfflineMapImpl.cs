@@ -5,7 +5,7 @@ using BMapMain;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
-    internal class OfflineMapImpl : BMKOfflineMapDelegate, OfflineMap
+    internal class OfflineMapImpl : BMKOfflineMapDelegate, IOfflineMap
     {
         private BMKOfflineMap native;
         public OfflineMapImpl()

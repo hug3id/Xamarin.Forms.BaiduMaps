@@ -95,6 +95,7 @@
     <Compile Include="ViewEx.cs" />
     <Compile Include="PolygonImpl.cs" />
     <Compile Include="CircleImpl.cs" />
+    <Compile Include="CalculateUtilsImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

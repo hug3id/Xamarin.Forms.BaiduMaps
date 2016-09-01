@@ -144,6 +144,10 @@
       <Project>{03A93561-6EF7-4EEC-9C2C-C58CD2AF3196}</Project>
       <Name>Xamarin.Forms.BaiduMaps.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BMapUtils.iOS\BMapUtils.iOS.csproj">
+      <Project>{5AF56151-5C6A-4904-907B-DC053676F286}</Project>
+      <Name>BMapUtils.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\mapapi.bundle\files\Beijing, China.gpx" />

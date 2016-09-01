@@ -14,13 +14,10 @@ namespace Xamarin.Forms.BaiduMaps.Sample
 
             map.Loaded += MapLoaded;
 
-            // 离线地图模块可单独使用
-            OfflineMap offlineMap = DependencyService.Get<OfflineMap>();
-
+            IOfflineMap offlineMap = DependencyService.Get<IOfflineMap>();
             offlineMap.HasUpdate += (_, e) => {
                 Debug.WriteLine("OfflineMap has update: " + e.CityID);
             };
-
             offlineMap.Downloading += (_, e) => {
                 Debug.WriteLine("OfflineMap downloading: " + e.CityID);
             };
@@ -31,6 +28,13 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             var curr = offlineMap.Current;
             //offlineMap.Start(131);
             curr = offlineMap.Current;
+
+            // 计算
+            ICalculateUtils calc = DependencyService.Get<ICalculateUtils>();
+            Debug.WriteLine(calc.CalculateDistance(
+                new Coordinate(40, 116),
+                new Coordinate(41, 117)
+            ));//139599.429229778 in iOS, 139689.085961837 in Android
         }
 
         public void MapLoaded(object sender, EventArgs x)

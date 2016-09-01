@@ -31,4 +31,5 @@ using Xamarin.Forms.BaiduMaps.iOS;
 
 [assembly: ExportRenderer(typeof(Map), typeof(MapRenderer))]
 [assembly: Dependency(typeof(OfflineMapImpl))]
+[assembly: Dependency(typeof(CalculateUtilsImpl))]
 
