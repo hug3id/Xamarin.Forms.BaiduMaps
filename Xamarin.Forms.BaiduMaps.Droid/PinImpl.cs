@@ -48,13 +48,14 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         protected override void RemoveNativeItem(Pin item)
         {
+            ((Marker)item.NativeObject).Icon.Recycle();
             ((Marker)item.NativeObject).Remove();
         }
 
         protected override void RemoveNativeItems(IList<Pin> items)
         {
             foreach (Pin item in items) {
-                ((Marker)item.NativeObject).Remove();
+                RemoveNativeItem(item);
             }
         }
 
