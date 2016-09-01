@@ -1,6 +1,15 @@
 # Xamarin.Forms.BaiduMaps
 A simply packaging for baidu maps sdk(android v4.0/ios v3.0)
 
+# 1.1.0
+
+## New Features
+
+* Add Polygon support
+* Add Circle support
+* Add ICalculateUtils interface
+* Add IProjection interface
+
 iOS Project configuration:
 ###
         1. Right click project, enter Options->iOS Build
