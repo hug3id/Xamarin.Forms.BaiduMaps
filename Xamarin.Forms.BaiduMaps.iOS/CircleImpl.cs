@@ -67,6 +67,10 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
+            if (Circle.CoordinateProperty.PropertyName == e.PropertyName) {
+                native.Coordinate = item.Coordinate.ToNative();
+            }
+
             if (Circle.RadiusProperty.PropertyName == e.PropertyName) {
                 native.Radius = item.Radius;
                 return;
