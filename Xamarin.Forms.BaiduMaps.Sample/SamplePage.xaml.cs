@@ -136,12 +136,13 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             };
             map.Pins.Add(annotation);
 
-            annotation.Drag += (_, e) => {
-                annotation.Title = annotation.Coordinate;
-                int i = map.Pins.IndexOf(annotation);
+            annotation.Drag += (o, e) => {
+                Pin self = o as Pin;
+                self.Title = self.Coordinate;
+                int i = map.Pins.IndexOf(self);
 
                 if (map.Polylines.Count > 0 && i>-1) {
-                    map.Polylines[0].Points[i] = annotation.Coordinate;
+                    map.Polylines[0].Points[i] = self.Coordinate;
                 }
             };
             annotation.Clicked += (_, e) => {
