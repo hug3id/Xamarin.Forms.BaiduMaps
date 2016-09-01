@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-//using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
+
 using Xamarin.Forms.BaiduMaps;
 using Xamarin.Forms.BaiduMaps.iOS;
 
@@ -32,4 +33,5 @@ using Xamarin.Forms.BaiduMaps.iOS;
 [assembly: ExportRenderer(typeof(Map), typeof(MapRenderer))]
 [assembly: Dependency(typeof(OfflineMapImpl))]
 [assembly: Dependency(typeof(CalculateUtilsImpl))]
+[assembly: Preserve]
 
