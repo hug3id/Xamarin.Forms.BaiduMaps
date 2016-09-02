@@ -1154,8 +1154,8 @@ namespace BMapMain
 	interface BMKShape
 	{
 		// @property (copy) NSString * title;
-		[Export("title")]
-		string Title { get; set; }
+		[Export("title")][NullAllowed]
+        string Title { get; set; }
 
 		// @property (copy) NSString * subtitle;
 		[Export("subtitle")]

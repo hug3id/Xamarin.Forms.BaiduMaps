@@ -48,6 +48,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         protected override void RemoveNativeItem(Pin item)
         {
+            NativeMap.Map.HideInfoWindow();
             ((Marker)item.NativeObject).Icon.Recycle();
             ((Marker)item.NativeObject).Remove();
         }
@@ -72,12 +73,12 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 return;
             }
 
-            if (Annotation.CoordinateProperty.PropertyName == e.PropertyName) {
+            if (Pin.CoordinateProperty.PropertyName == e.PropertyName) {
                 native.Position = item.Coordinate.ToNative();
                 return;
             }
 
-            if (Annotation.TitleProperty.PropertyName == e.PropertyName) {
+            if (Pin.TitleProperty.PropertyName == e.PropertyName) {
                 native.Title = item.Title;
                 return;
             }
