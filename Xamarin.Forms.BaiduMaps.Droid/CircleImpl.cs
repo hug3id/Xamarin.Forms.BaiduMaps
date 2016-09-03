@@ -58,6 +58,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
             if (Circle.CoordinateProperty.PropertyName == e.PropertyName) {
                 native.Center = item.Coordinate.ToNative();
+                return;
             }
 
             if (Circle.RadiusProperty.PropertyName == e.PropertyName) {
