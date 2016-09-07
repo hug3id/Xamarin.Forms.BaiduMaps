@@ -13,9 +13,9 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         protected override Marker CreateNativeItem(Pin item)
         {
-            MarkerOptions options = new MarkerOptions();
-            options.InvokePosition(item.Coordinate.ToNative());
-            options.InvokeTitle(item.Title);
+            MarkerOptions options = new MarkerOptions()
+                .InvokePosition(item.Coordinate.ToNative())
+                .InvokeTitle(item.Title);
 
             if (item.Animate) {
                 options.InvokeAnimateType(MarkerOptions.MarkerAnimateType.Grow);

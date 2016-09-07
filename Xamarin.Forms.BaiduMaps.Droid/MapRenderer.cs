@@ -32,7 +32,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
                 NativeMap.Map.Clear();
                 NativeMap.OnDestroy();
-                NativeMap.Dispose();
+                //NativeMap.Dispose();
             }
 
             System.Diagnostics.Debug.WriteLine("Disposing: " + disposing);

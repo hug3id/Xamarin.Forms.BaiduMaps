@@ -91,6 +91,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.Center = e.Coordinate;
                     moved = true;
                 }
+                Debug.WriteLine(e.Satellites);
             };
 
             map.LocationService.Failed += (_, e) => {
@@ -138,7 +139,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
 
             annotation.Drag += (o, e) => {
                 Pin self = o as Pin;
-                self.Title = self.Coordinate;
+                self.Title = null;//self.Coordinate;
                 int i = map.Pins.IndexOf(self);
 
                 if (map.Polylines.Count > 0 && i>-1) {
