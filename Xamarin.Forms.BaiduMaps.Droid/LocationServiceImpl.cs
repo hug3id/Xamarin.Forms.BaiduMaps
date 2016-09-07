@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Diagnostics;
 
+using Java.Util;
 using Android.Content;
+using Android.Locations;
+using Android.Runtime;
+
 using Com.Baidu.Location;
 using BMap = Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, ILocationService
+    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, ILocationService, GpsStatus.IListener
     {
+        private BMap.MapView mapView;
         private LocationClient native;
-        private BMap.BaiduMap map;
+        private LocationManager locationManager;
 
-        public LocationServiceImpl(BMap.BaiduMap map, Context context)
+        public LocationServiceImpl(BMap.MapView mapView, Context context)
         {
-            this.map = map;
+            this.mapView = mapView;
 
             LocationClientOption option = new LocationClientOption();
             option.SetLocationMode(LocationClientOption.LocationMode.HightAccuracy);
@@ -32,6 +37,9 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             native = new LocationClient(context);
             native.LocOption = option;
             native.RegisterLocationListener(this);
+
+            locationManager = LocationManager.FromContext(mapView.Context);
+            locationManager.AddGpsStatusListener(this);
         }
 
         ~LocationServiceImpl()
@@ -47,6 +55,21 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         public void Stop()
         {
             native.Stop();
+        }
+
+        private int satellites = -1;
+        public void OnGpsStatusChanged([GeneratedEnum] GpsEvent e)
+        {
+            GpsStatus status = locationManager.GetGpsStatus(null);
+            IIterator iterator = status.Satellites.Iterator();//GpsSatellite
+
+            int count = 0;
+            while (iterator.HasNext) {
+                count++;
+                iterator.Next();
+            }
+
+            satellites = count;
         }
 
         public void OnReceiveLocation(BDLocation location)
@@ -69,14 +92,14 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                         .Latitude(location.Latitude)
                         .Longitude(location.Longitude)
                         .Build();
-                    map.SetMyLocationData(loc);
+                    mapView.Map.SetMyLocationData(loc);
 
                     LocationUpdated?.Invoke(this, new LocationUpdatedEventArgs {
                         Coordinate = new Coordinate(loc.Latitude, loc.Longitude),
                         Direction = loc.Direction,
                         Accuracy = loc.Accuracy,
                         Altitude = location.Altitude,
-                        Satellites = location.SatelliteNumber
+                        Satellites = (-1 != location.SatelliteNumber) ? location.SatelliteNumber : satellites
                     });
                     break;
             }

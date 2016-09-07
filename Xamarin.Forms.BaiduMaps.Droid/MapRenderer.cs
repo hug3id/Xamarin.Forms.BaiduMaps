@@ -53,17 +53,17 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
 
             if (null != e.OldElement) {
-                var oldMap = (Map)e.OldElement;
+                var oldMap = e.OldElement;
                 oldMap.Pins.Clear();
 
-                var oldMapView = (BMap.MapView)Control;
+                var oldMapView = Control;
                 oldMapView.OnDestroy();
                 oldMapView.Dispose();
             }
 
             if (null != e.NewElement)
             {
-                Map.LocationService = new LocationServiceImpl(NativeMap.Map, Context);
+                Map.LocationService = new LocationServiceImpl(NativeMap, Context);
 
                 NativeMap.Map.MapClick += (_, ex) => {
                     Map.SendBlankClicked(ex.P0.ToUnity());
@@ -367,8 +367,8 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             NativeMap.ShowScaleControl(Map.ShowScaleBar);
         }
 
-        protected BMap.MapView NativeMap => (BMap.MapView)Control;
-        protected Map Map => (Map)Element;
+        protected BMap.MapView NativeMap => Control;
+        protected Map Map => Element;
     }
 }
 
