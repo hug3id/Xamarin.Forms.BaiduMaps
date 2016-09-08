@@ -1,28 +1,28 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 
 using AG = Android.Graphics;
 using Xamarin.Forms.Platform.Android;
-using BMap = Com.Baidu.Mapapi.Map;
-using Android.Widget;
+
+using Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    public partial class MapRenderer : ViewRenderer<Map, BMap.MapView>, BMap.BaiduMap.IOnMapLoadedCallback
+    public partial class MapRenderer : ViewRenderer<Map, MapView>, BaiduMap.IOnMapLoadedCallback
     {
-        private readonly PinImpl pinImpl = new PinImpl();
-        private readonly PolylineImpl polylineImpl = new PolylineImpl();
-        private readonly PolygonImpl polygonImpl = new PolygonImpl();
-        private readonly CircleImpl circleImpl = new CircleImpl();
+        protected MapView NativeMap => Control;
+        protected Map Map => Element;
+
+        readonly PinImpl pinImpl = new PinImpl();
+        readonly PolylineImpl polylineImpl = new PolylineImpl();
+        readonly PolygonImpl polygonImpl = new PolygonImpl();
+        readonly CircleImpl circleImpl = new CircleImpl();
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                if (null != Element)
-                {
-                    //var map = (Map)Element;
+            if (disposing) {
+                if (null != Element) {
+                    Map.Pins.Clear();
                 }
 
                 pinImpl.Unregister(Map);
@@ -31,6 +31,17 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 circleImpl.Unregister(Map);
 
                 NativeMap.Map.Clear();
+                NativeMap.Map.MapClick -= OnMapClick;
+                NativeMap.Map.MapPoiClick -= OnMapPoiClick;
+                NativeMap.Map.MapDoubleClick -= OnMapDoubleClick;
+                NativeMap.Map.MapLongClick -= OnMapLongClick;
+                NativeMap.Map.MarkerClick -= OnMarkerClick;
+                NativeMap.Map.MarkerDragStart -= OnMarkerDragStart;
+                NativeMap.Map.MarkerDrag -= OnMarkerDrag;
+                NativeMap.Map.MarkerDragEnd -= OnMarkerDragEnd;
+                NativeMap.Map.MapStatusChange -= MapStatusChanged;
+                NativeMap.Map.SetOnMapLoadedCallback(null);
+
                 NativeMap.OnDestroy();
                 //NativeMap.Dispose();
             }
@@ -49,14 +60,26 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             base.OnElementChanged(e);
 
             if (null == Control) {
-                SetNativeControl(new BMap.MapView(Context));
+                SetNativeControl(new MapView(Context));
             }
 
             if (null != e.OldElement) {
                 var oldMap = e.OldElement;
                 oldMap.Pins.Clear();
 
-                var oldMapView = Control;
+                MapView oldMapView = Control;
+                oldMapView.Map.Clear();
+                oldMapView.Map.MapClick -= OnMapClick;
+                oldMapView.Map.MapPoiClick -= OnMapPoiClick;
+                oldMapView.Map.MapDoubleClick -= OnMapDoubleClick;
+                oldMapView.Map.MapLongClick -= OnMapLongClick;
+                oldMapView.Map.MarkerClick -= OnMarkerClick;
+                oldMapView.Map.MarkerDragStart -= OnMarkerDragStart;
+                oldMapView.Map.MarkerDrag -= OnMarkerDrag;
+                oldMapView.Map.MarkerDragEnd -= OnMarkerDragEnd;
+                oldMapView.Map.MapStatusChange -= MapStatusChanged;
+                oldMapView.Map.SetOnMapLoadedCallback(null);
+
                 oldMapView.OnDestroy();
                 oldMapView.Dispose();
             }
@@ -65,64 +88,14 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             {
                 Map.LocationService = new LocationServiceImpl(NativeMap, Context);
 
-                NativeMap.Map.MapClick += (_, ex) => {
-                    Map.SendBlankClicked(ex.P0.ToUnity());
-                };
-
-                NativeMap.Map.MapPoiClick += (_, ex) => {
-                    Poi poi = new Poi {
-                        Coordinate = ex.P0.Position.ToUnity(),
-                        Description = ex.P0.Name
-                    };
-
-                    Map.SendPoiClicked(poi);
-                };
-
-                NativeMap.Map.MapDoubleClick += (_, ex) => {
-                    Map.SendDoubleClicked(ex.P0.ToUnity());
-                };
-
-                NativeMap.Map.MapLongClick += (_, ex) => {
-                    Map.SendLongClicked(ex.P0.ToUnity());
-                };
-
-                NativeMap.Map.MarkerClick += (_, ex) => {
-                    if (!string.IsNullOrEmpty(ex.P0.Title)) {
-                        TextView view = new TextView(Context);
-                        view.SetPadding(20, 20, 20, 20);
-                        view.SetBackgroundColor(Color.White.ToAndroid());
-                        view.Background.SetAlpha(100);
-                        view.Text = ex.P0.Title;
-
-                        NativeMap.Map.ShowInfoWindow(
-                            new BMap.InfoWindow(view, ex.P0.Position, -60)
-                        );
-                    }
-
-                    Map.Pins.Find(ex.P0)?.SendClicked();
-                };
-
-                NativeMap.Map.MarkerDragStart += (_, ex) => {
-                    NativeMap.Map.HideInfoWindow();
-                    Map.Pins.Find(ex.P0)?.SendDrag(AnnotationDragState.Starting);
-                };
-
-                NativeMap.Map.MarkerDragEnd += (_, ex) => {
-                    Pin pin = Map.Pins.Find(ex.P0);
-                    if (null != pin) {
-                        pinImpl.NotifyUpdate(pin);
-                        pin.SendDrag(AnnotationDragState.Ending);
-                    }
-                };
-
-                NativeMap.Map.MarkerDrag += (_, ex) => {
-                    Pin pin = Map.Pins.Find(ex.P0);
-                    if (null != pin) {
-                        pinImpl.NotifyUpdate(pin);
-                        pin.SendDrag(AnnotationDragState.Dragging);
-                    }
-                };
-
+                NativeMap.Map.MapClick += OnMapClick;
+                NativeMap.Map.MapPoiClick += OnMapPoiClick;
+                NativeMap.Map.MapDoubleClick += OnMapDoubleClick;
+                NativeMap.Map.MapLongClick += OnMapLongClick;
+                NativeMap.Map.MarkerClick += OnMarkerClick;
+                NativeMap.Map.MarkerDragStart += OnMarkerDragStart;
+                NativeMap.Map.MarkerDrag += OnMarkerDrag;
+                NativeMap.Map.MarkerDragEnd += OnMarkerDragEnd;
                 NativeMap.Map.MapStatusChange += MapStatusChanged;
                 NativeMap.Map.SetOnMapLoadedCallback(this);
 
@@ -153,34 +126,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
                 circleImpl.Unregister(e.OldElement);
                 circleImpl.Register(Map, NativeMap);
-            }
-        }
-
-        public void OnMapLoaded()
-        {
-            Map.Projection = new ProjectionImpl(NativeMap);
-            NativeMap.OnResume();
-            Map.SendLoaded();
-        }
-
-        private void MapStatusChanged(object sender, BMap.BaiduMap.MapStatusChangeEventArgs e)
-        {
-            bool changed = false;
-
-            Coordinate center = e.P0.Target.ToUnity();
-            if (Map.Center != center) {
-                Map.SetValueSilent(Map.CenterProperty, center);
-                changed = true;
-            }
-
-            float zoom = e.P0.Zoom;
-            if (Math.Abs(Map.ZoomLevel - zoom) > 0.01) {
-                Map.SetValueSilent(Map.ZoomLevelProperty, zoom);
-                changed = true;
-            }
-
-            if (changed) {
-                Map.SendStatusChanged();
             }
         }
 
@@ -270,7 +215,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             base.OnElementPropertyChanged(sender, e);
         }
 
-        private void UpdateMapType()
+        void UpdateMapType()
         {
             switch (Map.MapType) {
                 case MapType.None:
@@ -287,50 +232,50 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
-        private void UpdateUserTrackingMode()
+        void UpdateUserTrackingMode()
         {
-            BMap.MyLocationConfiguration.LocationMode mode;
+            MyLocationConfiguration.LocationMode mode;
 
             switch (Map.UserTrackingMode) {
                 default:
                 case UserTrackingMode.None:
-                    mode = BMap.MyLocationConfiguration.LocationMode.Normal;
+                    mode = MyLocationConfiguration.LocationMode.Normal;
                     break;
 
                 case UserTrackingMode.Follow:
-                    mode = BMap.MyLocationConfiguration.LocationMode.Following;
+                    mode = MyLocationConfiguration.LocationMode.Following;
                     break;
 
                 case UserTrackingMode.FollowWithCompass:
-                    mode = BMap.MyLocationConfiguration.LocationMode.Compass;
+                    mode = MyLocationConfiguration.LocationMode.Compass;
                     break;
             }
 
             NativeMap.Map.SetMyLocationConfigeration(
-                new BMap.MyLocationConfiguration(mode, true, null)
+                new MyLocationConfiguration(mode, true, null)
             );
 
             if (UserTrackingMode.FollowWithCompass != Map.UserTrackingMode) {
                 // 恢复俯视角
-                BMap.MapStatusUpdate overlook = BMap.MapStatusUpdateFactory.NewMapStatus(
-                    new BMap.MapStatus.Builder(NativeMap.Map.MapStatus).Rotate(0).Overlook(0).Build()
+                MapStatusUpdate overlook = MapStatusUpdateFactory.NewMapStatus(
+                    new MapStatus.Builder(NativeMap.Map.MapStatus).Rotate(0).Overlook(0).Build()
                 );
 
                 NativeMap.Map.AnimateMapStatus(overlook);
             }
         }
 
-        private void UpdateShowUserLocation()
+        void UpdateShowUserLocation()
         {
             NativeMap.Map.MyLocationEnabled = Map.ShowUserLocation;
         }
 
-        /*private void UpdateShowCompass()
+        /*void UpdateShowCompass()
         {
             NativeMap.Map.UiSettings.CompassEnabled = Map.ShowCompass;
         }*/
 
-        private void UpdateCompassPosition()
+        void UpdateCompassPosition()
         {
             NativeMap.Map.CompassPosition = new AG.Point {
                 X = (int)Map.CompassPosition.X,
@@ -338,37 +283,34 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             };
         }
 
-        private void UpdateZoomLevel()
+        void UpdateZoomLevel()
         {
             NativeMap.Map.AnimateMapStatus(
-                BMap.MapStatusUpdateFactory.ZoomTo(Map.ZoomLevel)
+                MapStatusUpdateFactory.ZoomTo(Map.ZoomLevel)
             );
         }
 
-        private void UpdateMinZoomLevel()
+        void UpdateMinZoomLevel()
         {
             NativeMap.Map.SetMaxAndMinZoomLevel(Map.MaxZoomLevel, Map.MinZoomLevel);
         }
 
-        private void UpdateMaxZoomLevel()
+        void UpdateMaxZoomLevel()
         {
             NativeMap.Map.SetMaxAndMinZoomLevel(Map.MaxZoomLevel, Map.MinZoomLevel);
         }
 
-        private void UpdateCenter()
+        void UpdateCenter()
         {
             NativeMap.Map.AnimateMapStatus(
-                BMap.MapStatusUpdateFactory.NewLatLng(Map.Center.ToNative())
+                MapStatusUpdateFactory.NewLatLng(Map.Center.ToNative())
             );
         }
 
-        private void UpdateShowScaleBar()
+        void UpdateShowScaleBar()
         {
             NativeMap.ShowScaleControl(Map.ShowScaleBar);
         }
-
-        protected BMap.MapView NativeMap => Control;
-        protected Map Map => Element;
     }
 }
 
