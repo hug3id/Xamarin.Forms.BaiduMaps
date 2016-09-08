@@ -1,6 +1,13 @@
 # Xamarin.Forms.BaiduMaps
 A simply packaging for baidu maps sdk(android v4.0/ios v3.0)
 
+# 1.1.1
+
+## Bug fix
+
+* Pin.Title now can be null (iOS)
+* ILocationService callback satellites always -1 (Android)
+
 # 1.1.0
 
 ## New Features
