@@ -37,6 +37,12 @@
     <EmbeddedResource Include="Images\pin_purple.png">
       <LogicalName>Sample.Images.pin_purple.png</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\10660.png">
+      <LogicalName>Sample.Images.10660.png</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -46,6 +52,9 @@
       <DependentUpon>SamplePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Forms.BaiduMaps\Xamarin.Forms.BaiduMaps.csproj">

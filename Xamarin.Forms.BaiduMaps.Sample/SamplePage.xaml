@@ -6,6 +6,6 @@
 		x:Class="Xamarin.Forms.BaiduMaps.Sample.SamplePage">
 	<StackLayout>
 		<maps:Map x:Name="map"/>
-		<Button x:Name="btnTrack" Text="Switch" />
+		<Button x:Name="btnTrack" Text="Switch"/>
 	</StackLayout>
 </ContentPage>

@@ -11,7 +11,6 @@ namespace Xamarin.Forms.BaiduMaps.Sample
         public SamplePage()
         {
             InitializeComponent();
-
             map.Loaded += MapLoaded;
 
             IOfflineMap offlineMap = DependencyService.Get<IOfflineMap>();
@@ -26,7 +25,8 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             list = offlineMap.AllList;
             //offlineMap.Remove(131);
             var curr = offlineMap.Current;
-            //offlineMap.Start(131);
+            //offlineMap.Start(27);
+            //offlineMap.Start(75);
             curr = offlineMap.Current;
 
             // 计算
@@ -59,7 +59,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             map.Circles.Add(new Circle {
                 Coordinate = map.Center,
                 Color = Color.Green,
-                FillColor = Color.Yellow,
+                FillColor = Color.Yellow.MultiplyAlpha(0.2),
                 Radius = 200,
                 Width = 2
             });
@@ -98,7 +98,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                 Debug.WriteLine("Location failed: " + e.Message);
             };
 
-            map.LocationService.Start();
+            //map.LocationService.Start();
         }
 
         public void InitEvents()
@@ -148,6 +148,10 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             };
             annotation.Clicked += (_, e) => {
                 Debug.WriteLine("clicked");
+                //await Navigation.PushAsync(new TestPage());
+                ((Pin)_).Image = XImage.FromStream(
+                    typeof(SamplePage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Images.10660.png")
+                );
             };
 
             if (0 == map.Polylines.Count && map.Pins.Count > 1) {

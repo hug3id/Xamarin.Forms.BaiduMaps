@@ -82,6 +82,11 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 native.Title = item.Title;
                 return;
             }
+
+            if (Pin.ImageProperty.PropertyName == e.PropertyName) {
+                native.Icon = item.Image?.ToNative();
+                return;
+            }
         }
     }
 }

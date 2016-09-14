@@ -8,7 +8,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
         {
             InitializeComponent();
 
-            MainPage = new SamplePage();
+            MainPage = new NavigationPage(new SamplePage());
         }
 
         protected override void OnStart()
