@@ -3,8 +3,21 @@
     <metadata minClientVersion="2.8.3">
         <id>Xamarin.Forms.BaiduMaps</id>
         <title>Xamarin.Forms.BaiduMaps</title>
-        <version>1.1.0</version>
+        <version>1.1.2</version>
         <releaseNotes>
+# 1.1.2
+
+## New Features
+
+* Support change Pin.Image(Android)
+
+# 1.1.1
+
+## Bug fix
+
+* Pin.Title now can be null (iOS)
+* ILocationService callback satellites always -1 (Android)
+
 # 1.1.0
 
 ## New Features
