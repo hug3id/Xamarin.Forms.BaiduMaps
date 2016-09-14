@@ -1,6 +1,12 @@
 # Xamarin.Forms.BaiduMaps
 A simply packaging for baidu maps sdk(android v4.0/ios v3.0)
 
+# 1.1.2
+
+## New Features
+
+* Support change Pin.Image(Android)
+
 # 1.1.1
 
 ## Bug fix
