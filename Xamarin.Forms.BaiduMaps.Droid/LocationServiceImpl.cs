@@ -96,9 +96,9 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
                     LocationUpdated?.Invoke(this, new LocationUpdatedEventArgs {
                         Coordinate = new Coordinate(loc.Latitude, loc.Longitude),
-                        Direction = loc.Direction,
-                        Accuracy = loc.Accuracy,
-                        Altitude = location.Altitude,
+                        Direction = location.Direction,
+                        Accuracy = location.HasRadius ? location.Radius : double.NaN,
+                        Altitude = location.HasAltitude ? location.Altitude : double.NaN,
                         Satellites = (-1 != location.SatelliteNumber) ? location.SatelliteNumber : satellites
                     });
                     break;
