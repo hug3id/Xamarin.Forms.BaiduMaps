@@ -40,6 +40,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
             locationManager = LocationManager.FromContext(mapView.Context);
             locationManager.AddGpsStatusListener(this);
+            //locationManager.RegisterGnssStatusCallback(GnssStatus.Callback)
         }
 
         ~LocationServiceImpl()
@@ -64,9 +65,11 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             IIterator iterator = status.Satellites.Iterator();//GpsSatellite
 
             int count = 0;
-            while (iterator.HasNext) {
-                count++;
-                iterator.Next();
+            while (iterator.HasNext && count <= status.MaxSatellites) {
+                GpsSatellite s = (GpsSatellite)iterator.Next();
+                if (s.Snr > 0) {
+                    count++;
+                }
             }
 
             satellites = count;
@@ -99,7 +102,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                         Direction = location.Direction,
                         Accuracy = location.HasRadius ? location.Radius : double.NaN,
                         Altitude = location.HasAltitude ? location.Altitude : double.NaN,
-                        Satellites = (-1 != location.SatelliteNumber) ? location.SatelliteNumber : satellites
+                        Satellites = location.SatelliteNumber
                     });
                     break;
             }
