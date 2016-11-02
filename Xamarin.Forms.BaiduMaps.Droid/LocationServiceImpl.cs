@@ -77,13 +77,13 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         public void OnReceiveLocation(BDLocation location)
         {
+            Debug.WriteLine("LocType: " + location.LocType);
             switch (location.LocType) {
                 default:break;
                     
                 case BDLocation.TypeServerError:
                 case BDLocation.TypeNetWorkException:
                 case BDLocation.TypeCriteriaException:
-                    Failed?.Invoke(this, new LocationFailedEventArgs("定位失败"));
                     break;
 
                 case BDLocation.TypeGpsLocation:
@@ -102,10 +102,13 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                         Direction = location.Direction,
                         Accuracy = location.HasRadius ? location.Radius : double.NaN,
                         Altitude = location.HasAltitude ? location.Altitude : double.NaN,
-                        Satellites = location.SatelliteNumber
+                        Satellites = location.SatelliteNumber,
+                        Type = location.LocTypeDescription
                     });
-                    break;
+                    return;
             }
+
+            Failed?.Invoke(this, new LocationFailedEventArgs(location.LocType.ToString()));
         }
 
         public event EventHandler<LocationFailedEventArgs> Failed;

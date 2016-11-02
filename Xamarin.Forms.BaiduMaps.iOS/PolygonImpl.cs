@@ -8,6 +8,7 @@ using CoreLocation;
 using Foundation;
 
 using BMapMain;
+using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
@@ -78,6 +79,25 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 }
 
                 native.SetPolygonWithCoordinates(ref points[0], points.Length);
+                return;
+            }
+
+            if (Polygon.WidthProperty.PropertyName == e.PropertyName) {
+                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                view.LineWidth = item.Width;
+                return;
+            }
+
+            if (Polygon.ColorProperty.PropertyName == e.PropertyName) {
+                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                view.StrokeColor = item.Color.ToUIColor();
+                return;
+            }
+
+            if (Polygon.FillColorProperty.PropertyName == e.PropertyName) {
+                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                view.FillColor = item.Color.ToUIColor();
+                return;
             }
         }
     }

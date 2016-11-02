@@ -788,7 +788,7 @@ namespace BMapMain
 
 		// -(BMKAnnotationView *)viewForAnnotation:(id<BMKAnnotation>)annotation;
 		[Export("viewForAnnotation:")]
-		BMKAnnotationView ViewForAnnotation(BMKAnnotation annotation);
+		NSObject ViewForAnnotation(NSObject annotation);
 
 		// -(BMKAnnotationView *)dequeueReusableAnnotationViewWithIdentifier:(NSString *)identifier;
 		[Export("dequeueReusableAnnotationViewWithIdentifier:")]

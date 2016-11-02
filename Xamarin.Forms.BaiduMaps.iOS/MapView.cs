@@ -28,7 +28,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                         annotationView.PinColor = BMKPinAnnotationColor.Purple;
                         annotationView.AnimatesDrop = ann.Animate;
                         annotationView.Draggable = ann.Draggable;
-                        annotationView.Enabled3D = ann.Enabled3D;
+                        // 开启后动态设置Image会导致pin图片拉伸
+                        //annotationView.Enabled3D = ann.Enabled3D;
 
                         if (null != ann.Image) {
                             annotationView.Image = ann.Image.ToNative();
@@ -53,7 +54,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                         return view;
                     }
-                } else if (typeof(BMKPolygon) == overlay.GetType()) {
+                }
+                else if (typeof(BMKPolygon) == overlay.GetType()) {
                     Polygon poly = map.Map.Polygons.Find(overlay);
                     if (null != poly) {
                         BMKPolygonView view = new BMKPolygonView(overlay);
@@ -63,8 +65,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                         return view;
                     }
-                } else if (typeof(BMKCircle) == overlay.GetType())
-                {
+                }
+                else if (typeof(BMKCircle) == overlay.GetType()) {
                     Circle circle = map.Map.Circles.Find(overlay);
                     if (null != circle) {
                         BMKCircleView view = new BMKCircleView(overlay);

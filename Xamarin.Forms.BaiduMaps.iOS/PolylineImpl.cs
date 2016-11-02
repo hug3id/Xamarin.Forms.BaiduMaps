@@ -9,6 +9,7 @@ using CoreLocation;
 using Foundation;
 
 using BMapMain;
+using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
@@ -84,6 +85,20 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 NativeMap.CenterCoordinate = new CLLocationCoordinate2D(
                     raw.Latitude, raw.Longitude + 0.0000000000000001
                 );
+
+                return;
+            }
+
+            if (Polyline.WidthProperty.PropertyName == e.PropertyName) {
+                BMKPolylineView view = (BMKPolylineView)NativeMap.ViewForAnnotation(native);
+                view.LineWidth = item.Width;
+                return;
+            }
+
+            if (Polyline.ColorProperty.PropertyName == e.PropertyName) {
+                BMKPolylineView view = (BMKPolylineView)NativeMap.ViewForAnnotation(native);
+                view.StrokeColor = item.Color.ToUIColor();
+                return;
             }
         }
     }

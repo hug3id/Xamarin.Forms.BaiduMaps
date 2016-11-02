@@ -9,6 +9,7 @@ using CoreLocation;
 using Foundation;
 
 using BMapMain;
+using Xamarin.Forms.Platform.iOS;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
@@ -74,6 +75,24 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Circle.RadiusProperty.PropertyName == e.PropertyName) {
                 native.Radius = item.Radius;
+                return;
+            }
+
+            if (Circle.WidthProperty.PropertyName == e.PropertyName) {
+                BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
+                view.LineWidth = item.Width;
+                return;
+            }
+
+            if (Circle.ColorProperty.PropertyName == e.PropertyName) {
+                BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
+                view.StrokeColor = item.Color.ToUIColor();
+                return;
+            }
+
+            if (Circle.FillColorProperty.PropertyName == e.PropertyName) {
+                BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
+                view.FillColor = item.Color.ToUIColor();
                 return;
             }
         }

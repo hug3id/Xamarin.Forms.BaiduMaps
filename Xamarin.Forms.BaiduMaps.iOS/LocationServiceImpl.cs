@@ -57,6 +57,10 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         {
             mapView.UpdateLocationData(userLocation);
 
+            if (userLocation.Location == null) {
+                return;
+            }
+
             LocationUpdated?.Invoke(this, new LocationUpdatedEventArgs {
                 Coordinate = userLocation.Location.Coordinate.ToUnity(),
                 Direction = userLocation.Heading?.TrueHeading ?? double.NaN,

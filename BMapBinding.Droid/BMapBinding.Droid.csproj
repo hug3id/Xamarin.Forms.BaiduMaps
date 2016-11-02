@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>BMapBinding.Droid</RootNamespace>
     <AssemblyName>BMapBinding.Droid</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
@@ -44,7 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +98,7 @@
     <Folder Include="Jars\" />
     <Folder Include="x86\" />
     <Folder Include="x86_64\" />
+    <Folder Include="Additions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\BaiduLBS_Android.jar" />
