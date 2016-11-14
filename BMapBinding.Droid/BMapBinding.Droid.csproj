@@ -44,34 +44,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_base_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_base_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_base_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_base_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_base_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_map_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_map_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_map_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_map_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_map_v4_0_0.so" />
     <EmbeddedNativeLibrary Include="arm64-v8a\liblocSDK7.so" />
     <EmbeddedNativeLibrary Include="armeabi\liblocSDK7.so" />
     <EmbeddedNativeLibrary Include="armeabi-v7a\liblocSDK7.so" />
     <EmbeddedNativeLibrary Include="x86\liblocSDK7.so" />
     <EmbeddedNativeLibrary Include="x86_64\liblocSDK7.so" />
-    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_util_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_util_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_util_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_util_v4_0_0.so" />
-    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_util_v4_0_0.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_base_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_map_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_util_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_base_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_map_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_util_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_base_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_map_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_util_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_base_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_map_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_util_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_base_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_map_v4_1_1.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_util_v4_1_1.so" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="arm64-v8a\" />
