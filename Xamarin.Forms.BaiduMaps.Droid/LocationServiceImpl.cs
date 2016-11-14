@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Diagnostics;
-
-using Java.Util;
 using Android.Content;
-using Android.Locations;
-using Android.Runtime;
-
 using Com.Baidu.Location;
 using BMap = Com.Baidu.Mapapi.Map;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, ILocationService, GpsStatus.IListener
+    internal class LocationServiceImpl : Java.Lang.Object, IBDLocationListener, ILocationService
     {
         private BMap.MapView mapView;
         private LocationClient native;
-        private LocationManager locationManager;
 
         public LocationServiceImpl(BMap.MapView mapView, Context context)
         {
@@ -37,10 +31,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             native = new LocationClient(context);
             native.LocOption = option;
             native.RegisterLocationListener(this);
-
-            locationManager = LocationManager.FromContext(mapView.Context);
-            locationManager.AddGpsStatusListener(this);
-            //locationManager.RegisterGnssStatusCallback(GnssStatus.Callback)
         }
 
         ~LocationServiceImpl()
@@ -56,23 +46,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         public void Stop()
         {
             native.Stop();
-        }
-
-        private int satellites = -1;
-        public void OnGpsStatusChanged([GeneratedEnum] GpsEvent e)
-        {
-            GpsStatus status = locationManager.GetGpsStatus(null);
-            IIterator iterator = status.Satellites.Iterator();//GpsSatellite
-
-            int count = 0;
-            while (iterator.HasNext && count <= status.MaxSatellites) {
-                GpsSatellite s = (GpsSatellite)iterator.Next();
-                if (s.Snr > 0) {
-                    count++;
-                }
-            }
-
-            satellites = count;
         }
 
         public void OnReceiveLocation(BDLocation location)
