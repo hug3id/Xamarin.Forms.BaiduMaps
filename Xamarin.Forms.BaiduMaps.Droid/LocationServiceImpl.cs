@@ -50,7 +50,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
         public void OnReceiveLocation(BDLocation location)
         {
-            Debug.WriteLine("LocType: " + location.LocType);
+            //Debug.WriteLine("LocType: " + location.LocType);
             switch (location.LocType) {
                 default:break;
                     

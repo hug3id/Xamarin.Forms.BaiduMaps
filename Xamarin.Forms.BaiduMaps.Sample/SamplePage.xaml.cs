@@ -91,14 +91,13 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.Center = e.Coordinate;
                     moved = true;
                 }
-                Debug.WriteLine(e.Satellites);
             };
 
             map.LocationService.Failed += (_, e) => {
                 Debug.WriteLine("Location failed: " + e.Message);
             };
 
-            //map.LocationService.Start();
+            map.LocationService.Start();
         }
 
         public void InitEvents()
@@ -119,7 +118,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             };
 
             map.StatusChanged += (_, e) => {
-                Debug.WriteLine(map.Center + " @" + map.ZoomLevel);
+                //Debug.WriteLine(map.Center + " @" + map.ZoomLevel);
             };
         }
 
@@ -146,9 +145,9 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                     map.Polylines[0].Points[i] = self.Coordinate;
                 }
             };
+
             annotation.Clicked += (_, e) => {
                 Debug.WriteLine("clicked");
-                //await Navigation.PushAsync(new TestPage());
                 ((Pin)_).Image = XImage.FromStream(
                     typeof(SamplePage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Images.10660.png")
                 );
