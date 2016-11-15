@@ -7,4 +7,4 @@
 
 using ObjCRuntime;
 
-[assembly: LinkWith ("libRadar-3.0.0.a", SmartLink = true, ForceLoad = true)]
+[assembly: LinkWith ("BaiduMapAPI_Radar v3.1.a", SmartLink = true, ForceLoad = true)]
