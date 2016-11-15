@@ -1,117 +1,100 @@
 ﻿using System;
-using Foundation;
-using ObjCRuntime;
-
 using BMapBase;
 
 namespace BMapLocation
 {
-	//[Static]
-	//[Verify(ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern const BMKMapSize BMKMapSizeWorld __attribute__((visibility("default")));
-		[Field("BMKMapSizeWorld", "__Internal")]
-		BMKMapSize BMKMapSizeWorld { get; }
+    using Foundation;
+    using ObjCRuntime;
 
-		// extern const BMKMapRect BMKMapRectWorld __attribute__((visibility("default")));
-		[Field("BMKMapRectWorld", "__Internal")]
-		BMKMapRect BMKMapRectWorld { get; }
+    // @protocol BMKLocationServiceDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface BMKLocationServiceDelegate
+    {
+        // @optional -(void)willStartLocatingUser;
+        [Export("willStartLocatingUser")]
+        void WillStartLocatingUser();
 
-		// extern const BMKMapRect BMKMapRectNull __attribute__((visibility("default")));
-		[Field("BMKMapRectNull", "__Internal")]
-		BMKMapRect BMKMapRectNull { get; }
-	}
+        // @optional -(void)didStopLocatingUser;
+        [Export("didStopLocatingUser")]
+        void DidStopLocatingUser();
 
-	// @protocol BMKLocationServiceDelegate <NSObject>
-	[Protocol, Model]
-	[BaseType(typeof(NSObject))]
-	interface BMKLocationServiceDelegate
-	{
-		// @optional -(void)willStartLocatingUser;
-		[Export("willStartLocatingUser")]
-		void WillStartLocatingUser();
+        // @optional -(void)didUpdateUserHeading:(id)userLocation;
+        [Export("didUpdateUserHeading:")]
+        void DidUpdateUserHeading(BMKUserLocation userLocation);
 
-		// @optional -(void)didStopLocatingUser;
-		[Export("didStopLocatingUser")]
-		void DidStopLocatingUser();
+        // @optional -(void)didUpdateBMKUserLocation:(id)userLocation;
+        [Export("didUpdateBMKUserLocation:")]
+        void DidUpdateBMKUserLocation(BMKUserLocation userLocation);
 
-		// @optional -(void)didUpdateUserHeading:(BMKUserLocation *)userLocation;
-		[Export("didUpdateUserHeading:")]
-		void DidUpdateUserHeading(BMKUserLocation userLocation);
+        // @optional -(void)didFailToLocateUserWithError:(NSError *)error;
+        [Export("didFailToLocateUserWithError:")]
+        void DidFailToLocateUserWithError(NSError error);
+    }
 
-		// @optional -(void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation;
-		[Export("didUpdateBMKUserLocation:")]
-		void DidUpdateBMKUserLocation(BMKUserLocation userLocation);
+    // @interface BMKLocationService : NSObject
+    [BaseType(typeof(NSObject))]
+    interface BMKLocationService
+    {
+        // @property (readonly, nonatomic) BMKUserLocation * userLocation;
+        [Export("userLocation")]
+        BMKUserLocation UserLocation { get; }
 
-		// @optional -(void)didFailToLocateUserWithError:(NSError *)error;
-		[Export("didFailToLocateUserWithError:")]
-		void DidFailToLocateUserWithError(NSError error);
-	}
+        [Wrap("WeakDelegate")]
+        BMKLocationServiceDelegate Delegate { get; set; }
 
-	// @interface BMKLocationService : NSObject
-	[BaseType(typeof(NSObject))]
-	interface BMKLocationService
-	{
-		// @property (readonly, nonatomic) BMKUserLocation * userLocation;
-		[Export("userLocation")]
-		BMKUserLocation UserLocation { get; }
+        // @property (nonatomic, weak) id<BMKLocationServiceDelegate> delegate;
+        [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
+        NSObject WeakDelegate { get; set; }
 
-		[Wrap("WeakDelegate")]
-		BMKLocationServiceDelegate Delegate { get; set; }
+        // -(void)startUserLocationService;
+        [Export("startUserLocationService")]
+        void StartUserLocationService();
 
-		// @property (nonatomic, weak) id<BMKLocationServiceDelegate> delegate;
-		[NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
-		NSObject WeakDelegate { get; set; }
+        // -(void)stopUserLocationService;
+        [Export("stopUserLocationService")]
+        void StopUserLocationService();
 
-		// -(void)startUserLocationService;
-		[Export("startUserLocationService")]
-		void StartUserLocationService();
+        // @property (assign, nonatomic) CLLocationDistance distanceFilter;
+        [Export("distanceFilter")]
+        double DistanceFilter { get; set; }
 
-		// -(void)stopUserLocationService;
-		[Export("stopUserLocationService")]
-		void StopUserLocationService();
+        // @property (assign, nonatomic) CLLocationAccuracy desiredAccuracy;
+        [Export("desiredAccuracy")]
+        double DesiredAccuracy { get; set; }
 
-		// @property (assign, nonatomic) CLLocationDistance distanceFilter;
-		[Export("distanceFilter")]
-		double DistanceFilter { get; set; }
+        // @property (assign, nonatomic) CLLocationDegrees headingFilter;
+        [Export("headingFilter")]
+        double HeadingFilter { get; set; }
 
-		// @property (assign, nonatomic) CLLocationAccuracy desiredAccuracy;
-		[Export("desiredAccuracy")]
-		double DesiredAccuracy { get; set; }
+        // @property (assign, nonatomic) BOOL pausesLocationUpdatesAutomatically;
+        [Export("pausesLocationUpdatesAutomatically")]
+        bool PausesLocationUpdatesAutomatically { get; set; }
 
-		// @property (assign, nonatomic) CLLocationDegrees headingFilter;
-		[Export("headingFilter")]
-		double HeadingFilter { get; set; }
+        // @property (assign, nonatomic) BOOL allowsBackgroundLocationUpdates;
+        [Export("allowsBackgroundLocationUpdates")]
+        bool AllowsBackgroundLocationUpdates { get; set; }
 
-		// @property (assign, nonatomic) BOOL pausesLocationUpdatesAutomatically;
-		[Export("pausesLocationUpdatesAutomatically")]
-		bool PausesLocationUpdatesAutomatically { get; set; }
+        // +(void)setLocationDistanceFilter:(id)distanceFilter __attribute__((deprecated("废弃方法（空实现），使用distanceFilter属性替换")));
+        //[Static]
+        //[Export("setLocationDistanceFilter:")]
+        //void SetLocationDistanceFilter(NSObject distanceFilter);
 
-		// @property (assign, nonatomic) BOOL allowsBackgroundLocationUpdates;
-		[Export("allowsBackgroundLocationUpdates")]
-		bool AllowsBackgroundLocationUpdates { get; set; }
+        // +(id)getCurrentLocationDistanceFilter __attribute__((deprecated("废弃方法（空实现），使用distanceFilter属性替换")));
+        //[Static]
+        //[Export("getCurrentLocationDistanceFilter")]
+        //[Verify(MethodToProperty)]
+        //NSObject CurrentLocationDistanceFilter { get; }
 
-		// +(void)setLocationDistanceFilter:(CLLocationDistance)distanceFilter __attribute__((deprecated("废弃方法（空实现），使用distanceFilter属性替换")));
-		//[Static]
-		//[Export("setLocationDistanceFilter:")]
-		//void SetLocationDistanceFilter(double distanceFilter);
+        // +(void)setLocationDesiredAccuracy:(id)desiredAccuracy __attribute__((deprecated("废弃方法（空实现），使用desiredAccuracy属性替换")));
+        //[Static]
+        //[Export("setLocationDesiredAccuracy:")]
+        //void SetLocationDesiredAccuracy(NSObject desiredAccuracy);
 
-		// +(CLLocationDistance)getCurrentLocationDistanceFilter __attribute__((deprecated("废弃方法（空实现），使用distanceFilter属性替换")));
-		//[Static]
-		//[Export("getCurrentLocationDistanceFilter")]
-		//[Verify(MethodToProperty)]
-		//double CurrentLocationDistanceFilter { get; }
-
-		// +(void)setLocationDesiredAccuracy:(CLLocationAccuracy)desiredAccuracy __attribute__((deprecated("废弃方法（空实现），使用desiredAccuracy属性替换")));
-		//[Static]
-		//[Export("setLocationDesiredAccuracy:")]
-		//void SetLocationDesiredAccuracy(double desiredAccuracy);
-
-		// +(CLLocationAccuracy)getCurrentLocationDesiredAccuracy __attribute__((deprecated("废弃方法（空实现），使用desiredAccuracy属性替换")));
-		//[Static]
-		//[Export("getCurrentLocationDesiredAccuracy")]
-		//[Verify(MethodToProperty)]
-		//double CurrentLocationDesiredAccuracy { get; }
-	}
+        // +(id)getCurrentLocationDesiredAccuracy __attribute__((deprecated("废弃方法（空实现），使用desiredAccuracy属性替换")));
+        //[Static]
+        //[Export("getCurrentLocationDesiredAccuracy")]
+        //[Verify(MethodToProperty)]
+        //NSObject CurrentLocationDesiredAccuracy { get; }
+    }
 }

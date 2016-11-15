@@ -14,14 +14,14 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
         public Point ToScreen(Coordinate p)
         {
-            CGPoint point = NativeView.ConvertCoordinate(p.ToNative(), NativeView);
+            CGPoint point = NativeView.ConvertCoordinateToPointToView(p.ToNative(), NativeView);
             return new Point(point.X, point.Y);
         }
 
         public Coordinate ToCoordinate(Point p)
         {
             CGPoint point = new CGPoint(p.X, p.Y);
-            return NativeView.ConvertPoint(point, NativeView).ToUnity();
+            return NativeView.ConvertPointToCoordinateFromView(point, NativeView).ToUnity();
         }
     }
 }

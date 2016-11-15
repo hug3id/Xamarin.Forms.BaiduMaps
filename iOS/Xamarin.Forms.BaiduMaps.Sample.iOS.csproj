@@ -30,7 +30,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
-    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir}  -framework MapKit -framework CoreMotion -framework CoreGraphics -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration -lz -lstdc++.6.0.9 -lsqlite3.0 -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security -ObjC"</MtouchExtraArgs>
     <OptimizePNGs>true</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Resources\mapapi.bundle\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -150,26 +149,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\mapapi.bundle\files\Beijing, China.gpx" />
-    <BundleResource Include="Resources\mapapi.bundle\files\channel" />
     <BundleResource Include="Resources\mapapi.bundle\files\CustomIndex" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVDirectory.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVDirectory_Retina.cfg" />
-    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity.cfg" />
-    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity_Retina.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVHotMap.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVHotMap_Retina.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\DVHotcity_Retina.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVSDirectory.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVSDirectory_Retina.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVVersion.cfg" />
     <BundleResource Include="Resources\mapapi.bundle\files\DVVersion_Retina.cfg" />
-    <BundleResource Include="Resources\mapapi.bundle\files\indoor\baseindoormap.sty" />
-    <BundleResource Include="Resources\mapapi.bundle\files\indoor\DVIndoor.cfg" />
-    <BundleResource Include="Resources\mapapi.bundle\files\indoor\IndoorResPack.rs" />
-    <BundleResource Include="Resources\mapapi.bundle\files\mapstyle.sty" />
     <BundleResource Include="Resources\mapapi.bundle\files\ResPack.rs" />
+    <BundleResource Include="Resources\mapapi.bundle\files\channel" />
+    <BundleResource Include="Resources\mapapi.bundle\files\mapstyle.sty" />
     <BundleResource Include="Resources\mapapi.bundle\files\satellitestyle.sty" />
     <BundleResource Include="Resources\mapapi.bundle\files\trafficstyle.sty" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\DVIndoor.cfg" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\IndoorResPack.rs" />
+    <BundleResource Include="Resources\mapapi.bundle\files\indoor\baseindoormap.sty" />
     <BundleResource Include="Resources\mapapi.bundle\images\baidumap_logo.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\baidumap_logo%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\bnavi_icon_location_fixed.png" />
@@ -185,9 +183,9 @@
     <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right_highlighted.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_action_paopao_middle_right_highlighted%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone.png" />
-    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone2.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone2%402x.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\icon_cellphone%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_center_point.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_center_point%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_compass.png" />
@@ -215,8 +213,8 @@
     <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right_highlighted.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\icon_paopao_middle_right_highlighted%402x.png" />
-    <BundleResource Include="Resources\mapapi.bundle\images\line_texture.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\lineDashTexture.png" />
+    <BundleResource Include="Resources\mapapi.bundle\images\line_texture.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\pin_green.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\pin_green%402x.png" />
     <BundleResource Include="Resources\mapapi.bundle\images\pin_purple.png" />

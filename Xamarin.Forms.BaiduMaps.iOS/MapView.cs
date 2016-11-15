@@ -18,7 +18,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 this.map = map;
             }
 
-            public override BMKAnnotationView MapViewViewForAnnotation(BMKMapView mapView, BMKAnnotation annotation)
+            public override BMKAnnotationView ViewForAnnotation(BMKMapView mapView, BMKAnnotation annotation)
             {
                 if (typeof(BMKPointAnnotation) == annotation.GetType())
                 {
@@ -43,7 +43,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return null;
             }
 
-            public override BMKOverlayView MapViewViewForOverlay(BMKMapView mapView, BMKOverlay overlay)
+            public override BMKOverlayView ViewForOverlay(BMKMapView mapView, BMKOverlay overlay)
             {
                 if (typeof(BMKPolyline) == overlay.GetType()) {
                     Polyline poly = map.Map.Polylines.Find(overlay);
@@ -82,15 +82,13 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return null;
             }
 
-            public override void MapViewOnClickedMapBlank(BMKMapView mapView, CLLocationCoordinate2D coordinate)
+            public override void OnClickedMapBlank(BMKMapView mapView, CLLocationCoordinate2D coordinate)
             {
-                //Debug.WriteLine("点击: " + coordinate.ToCoordinate());
                 map.Map.SendBlankClicked(coordinate.ToUnity());
             }
 
-            public override void MapViewOnClickedMapPoi(BMKMapView mapView, BMKMapPoi mapPoi)
+            public override void OnClickedMapPoi(BMKMapView mapView, BMKMapPoi mapPoi)
             {
-                //Debug.WriteLine("点击POI: " + coordinate.ToCoordinate());
                 Poi poi = new Poi {
                     Coordinate = mapPoi.Pt.ToUnity(),
                     Description = mapPoi.Description
@@ -99,40 +97,34 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 map.Map.SendPoiClicked(poi);
             }
 
-            public override void MapViewOnClickedBMKOverlayView(BMKMapView mapView, BMKOverlayView overlayView)
+            public override void OnClickedBMKOverlayView(BMKMapView mapView, BMKOverlayView overlayView)
             {
                 //Debug.WriteLine("点击Overlay: " + coordinate.ToCoordinate());
             }
 
-            public override void MapViewOnDoubleClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
+            public override void OnDoubleClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
             {
-                //Debug.WriteLine("双击: " + coordinate.ToCoordinate());
                 map.Map.SendDoubleClicked(coordinate.ToUnity());
             }
 
-            public override void MapViewOnLongClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
+            public override void OnLongClick(BMKMapView mapView, CLLocationCoordinate2D coordinate)
             {
-                // IOS SDK 3.0 中存在抬起手指又触发一次，和长按拖动也会不停触发的bug
-                // 通过自定义长按手势判断长按是否开始，触发后立即关闭
-                if (map.isLongPressReady) {
-                    map.Map.SendLongClicked(coordinate.ToUnity());
-                    map.isLongPressReady = false;
-                }
+                map.Map.SendLongClicked(coordinate.ToUnity());
             }
 
-            public override void MapViewDidSelectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
+            public override void DidSelectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
             {
                 Pin annotation = map.Map.Pins.Find(view.Annotation);
                 annotation?.SendClicked();
             }
 
-            public override void MapViewDidDeselectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
+            public override void DidDeselectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
             {
                 //Pin annotation = Map.Pins.Find(view.Annotation);
                 //annotation?.SendDeselected();
             }
 
-            public override void MapViewAnnotationViewDidChangeDragStateFromOldState(
+            public override void AnnotationViewDidChangeDragState(
                 BMKMapView mapView, BMKAnnotationView view,
                 BMKAnnotationViewDragState newState, BMKAnnotationViewDragState oldState)
             {
@@ -163,8 +155,9 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 }
             }
 
-            public override void MapViewDidFinishLoading(BMKMapView mapView)
+            public override void DidFinishLoading(BMKMapView mapView)
             {
+                mapView.CompassPosition = new CoreGraphics.CGPoint(5, 20);
                 mapView.ViewWillAppear();
                 map.Map.Projection = new ProjectionImpl(mapView);
                 map.Map.SendLoaded();
@@ -175,13 +168,15 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 bool changed = false;
 
                 Coordinate center = mapView.CenterCoordinate.ToUnity();
-                if (map.Map.Center != center) {
+                if (Math.Abs(map.Map.Center.Latitude - center.Latitude) > 0.0001 ||
+                    Math.Abs(map.Map.Center.Longitude - center.Longitude) > 0.0001)
+                {
                     map.Map.SetValueSilent(Map.CenterProperty, center);
                     changed = true;
                 }
 
                 float zoom = mapView.ZoomLevel;
-                if (Math.Abs(map.Map.ZoomLevel - zoom) > 0.01) {
+                if (Math.Abs(map.Map.ZoomLevel - zoom) > 0.001) {
                     map.Map.SetValueSilent(Map.ZoomLevelProperty, zoom);
                     changed = true;
                 }

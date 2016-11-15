@@ -13,7 +13,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 {
     public partial class MapRenderer : ViewRenderer<Map, BMKMapView>
     {
-        internal bool isLongPressReady = true;
         private readonly PinImpl pinImpl = new PinImpl();
         private readonly PolylineImpl polylineImpl = new PolylineImpl();
         private readonly PolygonImpl polygonImpl = new PolygonImpl();
@@ -63,13 +62,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                     Map.LocationService = new LocationServiceImpl(NativeMap);
                     NativeMap.Delegate = new MapViewDelegate(this);
-
-                    UILongPressGestureRecognizer longPress = new UILongPressGestureRecognizer();
-                    longPress.Delegate = new LongPressGestureDelegate(this);
-                    longPress.CancelsTouchesInView = false;
-                    longPress.DelaysTouchesEnded = false;
-
-                    AddGestureRecognizer(longPress);
                 }
 
                 UpdateMapType();
@@ -226,7 +218,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
         private void UpdateShowCompass()
         {
-            
         }
 
         private void UpdateCompassPosition()

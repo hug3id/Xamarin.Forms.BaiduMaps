@@ -80,12 +80,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 }
 
                 native.SetPolylineWithCoordinates(ref points[0], points.Length);
-                //NativeMap.MapForceRefresh(); // 没什么卵用
-                var raw = NativeMap.CenterCoordinate;
-                NativeMap.CenterCoordinate = new CLLocationCoordinate2D(
-                    raw.Latitude, raw.Longitude + 0.0000000000000001
-                );
-
                 return;
             }
 
