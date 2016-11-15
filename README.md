@@ -2,6 +2,7 @@
 A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)
 
 # 1.2
+
 * Update baidu sdk to v4.1.1(android) and v3.1(ios)
 * Update Xamarin.Forms to v2.3.2.127
 
