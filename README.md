@@ -1,5 +1,9 @@
 # Xamarin.Forms.BaiduMaps
-A simply packaging for baidu maps sdk(android v4.0/ios v3.0)
+A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)
+
+# 1.2
+* Update baidu sdk to v4.1.1(android) and v3.1(ios)
+* Update Xamarin.Forms to v2.3.2.127
 
 # 1.1.2
 
@@ -29,7 +33,7 @@ iOS Project configuration:
         -gcc_flags "-L${ProjectDir} -framework MapKit -framework CoreMotion -framework CoreGraphics
         -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration  
         -framework CoreTelephony -framework OpenGLES -framework Foundation -framework Security  
-        -lz -lstdc++.6.0.9 -lz -lsqlite3.0 -ObjC"
+        -lz -lstdc++.6.0.9 -lsqlite3.0 -ObjC"
 
         2. Open Info.plist
         2.1 Bundle identifier must accord with your baidu key
