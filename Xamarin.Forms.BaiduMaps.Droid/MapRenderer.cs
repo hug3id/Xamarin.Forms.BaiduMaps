@@ -102,10 +102,10 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 NativeMap.ShowZoomControls(false);
 
                 UpdateMapType();
-                //UpdateUserTrackingMode();
-                //UpdateShowUserLocation();
+                UpdateUserTrackingMode();
+                UpdateShowUserLocation();
 
-                //UpdateShowCompass();
+                UpdateShowCompass();
                 UpdateCompassPosition();
 
                 UpdateZoomLevel();
@@ -114,6 +114,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
 
                 UpdateCenter();
                 UpdateShowScaleBar();
+                UpdateShowZoomControl();
 
                 pinImpl.Unregister(e.OldElement);
                 pinImpl.Register(Map, NativeMap);
@@ -164,11 +165,12 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 return;
             }
 
-            /*if (Map.ShowCompassProperty.PropertyName == e.PropertyName)
+            if (Map.ShowCompassProperty.PropertyName == e.PropertyName)
             {
+                System.Diagnostics.Debug.WriteLine("ShowCompass = " + Map.ShowCompass);
                 UpdateShowCompass();
                 return;
-            }*/
+            }
 
             if (Map.CompassPositionProperty.PropertyName == e.PropertyName)
             {
@@ -209,6 +211,14 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             {
                 System.Diagnostics.Debug.WriteLine("ShowScaleBar = " + Map.ShowScaleBar);
                 UpdateShowScaleBar();
+                return;
+            }
+
+            if (Map.ShowZoomControlProperty.PropertyName == e.PropertyName)
+            {
+                System.Diagnostics.Debug.WriteLine("ShowZoomControl = " + Map.ShowZoomControl);
+                UpdateShowZoomControl();
+                return;
             }
 
             System.Diagnostics.Debug.WriteLine("OnElementPropertyChanged: " + e.PropertyName);
@@ -270,10 +280,10 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             NativeMap.Map.MyLocationEnabled = Map.ShowUserLocation;
         }
 
-        /*void UpdateShowCompass()
+        void UpdateShowCompass()
         {
             NativeMap.Map.UiSettings.CompassEnabled = Map.ShowCompass;
-        }*/
+        }
 
         void UpdateCompassPosition()
         {
@@ -310,6 +320,11 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         void UpdateShowScaleBar()
         {
             NativeMap.ShowScaleControl(Map.ShowScaleBar);
+        }
+
+        void UpdateShowZoomControl()
+        {
+            NativeMap.ShowZoomControls(Map.ShowZoomControl);
         }
     }
 }

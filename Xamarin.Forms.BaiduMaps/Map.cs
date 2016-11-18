@@ -67,6 +67,20 @@ namespace Xamarin.Forms.BaiduMaps
             set { SetValue(ShowUserLocationProperty, value); }
         }
 
+        // ShowCompass
+        public static readonly BindableProperty ShowCompassProperty = BindableProperty.Create(
+            propertyName: nameof(ShowCompass),
+            returnType: typeof(bool),
+            declaringType: typeof(Map),
+            defaultValue: true
+        );
+
+        public bool ShowCompass
+        {
+            get { return (bool)GetValue(ShowCompassProperty); }
+            set { SetValue(ShowCompassProperty, value); }
+        }
+
         // CompassPosition
         public static readonly BindableProperty CompassPositionProperty = BindableProperty.Create(
             propertyName: nameof(CompassPosition),
@@ -149,6 +163,20 @@ namespace Xamarin.Forms.BaiduMaps
         {
             get { return (bool)GetValue(ShowScaleBarProperty); }
             set { SetValue(ShowScaleBarProperty, value); }
+        }
+
+        // ShowZoomControl
+        public static readonly BindableProperty ShowZoomControlProperty = BindableProperty.Create(
+            propertyName: nameof(ShowZoomControl),
+            returnType: typeof(bool),
+            declaringType: typeof(Map),
+            defaultValue: true
+        );
+
+        public bool ShowZoomControl
+        {
+            get { return (bool)GetValue(ShowZoomControlProperty); }
+            set { SetValue(ShowZoomControlProperty, value); }
         }
 
         public ILocationService LocationService { get; internal set; }

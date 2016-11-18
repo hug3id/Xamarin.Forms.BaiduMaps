@@ -13,10 +13,10 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 {
     public partial class MapRenderer : ViewRenderer<Map, BMKMapView>
     {
-        private readonly PinImpl pinImpl = new PinImpl();
-        private readonly PolylineImpl polylineImpl = new PolylineImpl();
-        private readonly PolygonImpl polygonImpl = new PolygonImpl();
-        private readonly CircleImpl circleImpl = new CircleImpl();
+        readonly PinImpl pinImpl = new PinImpl();
+        readonly PolylineImpl polylineImpl = new PolylineImpl();
+        readonly PolygonImpl polygonImpl = new PolygonImpl();
+        readonly CircleImpl circleImpl = new CircleImpl();
 
         protected override void Dispose(bool disposing)
         {
@@ -65,10 +65,10 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 }
 
                 UpdateMapType();
-                //UpdateUserTrackingMode();
-                //UpdateShowUserLocation();
+                UpdateUserTrackingMode();
+                UpdateShowUserLocation();
 
-                //UpdateShowCompass();
+                UpdateShowCompass();
                 UpdateCompassPosition();
 
                 UpdateZoomLevel();
@@ -77,6 +77,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                 UpdateCenter();
                 UpdateShowScaleBar();
+                UpdateShowZoomControl();
 
                 pinImpl.Unregister(e.OldElement);
                 pinImpl.Register(Map, NativeMap);
@@ -127,11 +128,12 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            /*if (Map.ShowCompassProperty.PropertyName == e.PropertyName)
+            if (Map.ShowCompassProperty.PropertyName == e.PropertyName)
             {
+                Debug.WriteLine("ShowCompass = " + Map.ShowCompass);
                 UpdateShowCompass();
                 return;
-            }*/
+            }
 
             if (Map.CompassPositionProperty.PropertyName == e.PropertyName)
             {
@@ -163,13 +165,22 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Map.CenterProperty.PropertyName == e.PropertyName)
             {
+                Debug.WriteLine("Center = " + Map.Center);
                 UpdateCenter();
                 return;
             }
 
             if (Map.ShowScaleBarProperty.PropertyName == e.PropertyName)
             {
+                Debug.WriteLine("ShowScaleBar = " + Map.ShowScaleBar);
                 UpdateShowScaleBar();
+                return;
+            }
+
+            if (Map.ShowZoomControlProperty.PropertyName == e.PropertyName)
+            {
+                Debug.WriteLine("ShowZoomControl = " + Map.ShowZoomControl);
+                UpdateShowZoomControl();
                 return;
             }
 
@@ -177,7 +188,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             base.OnElementPropertyChanged(sender, e);
         }
 
-        private void UpdateMapType()
+        void UpdateMapType()
         {
             switch (Map.MapType) {
                 case MapType.None:
@@ -194,7 +205,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             }
         }
 
-        private void UpdateUserTrackingMode()
+        void UpdateUserTrackingMode()
         {
             switch (Map.UserTrackingMode) {
                 case UserTrackingMode.None:
@@ -211,43 +222,49 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             }
         }
 
-        private void UpdateShowUserLocation()
+        void UpdateShowUserLocation()
         {
             NativeMap.SetShowsUserLocation(Map.ShowUserLocation);
         }
 
-        private void UpdateShowCompass()
-        {
+        void UpdateShowCompass()
+        { 
         }
 
-        private void UpdateCompassPosition()
+        void UpdateCompassPosition()
         {
-            NativeMap.CompassPosition = new CGPoint(Map.CompassPosition.X, Map.CompassPosition.Y);
+            NativeMap.CompassPosition = new CGPoint(
+                Map.CompassPosition.X, Map.CompassPosition.Y
+            );
         }
 
-        private void UpdateZoomLevel()
+        void UpdateZoomLevel()
         {
             NativeMap.ZoomLevel = Map.ZoomLevel;
         }
 
-        private void UpdateMinZoomLevel()
+        void UpdateMinZoomLevel()
         {
             NativeMap.MinZoomLevel = Map.MinZoomLevel;
         }
 
-        private void UpdateMaxZoomLevel()
+        void UpdateMaxZoomLevel()
         {
             NativeMap.MaxZoomLevel = Map.MaxZoomLevel;
         }
 
-        private void UpdateCenter()
+        void UpdateCenter()
         {
             NativeMap.CenterCoordinate = Map.Center.ToNative();
         }
 
-        private void UpdateShowScaleBar()
+        void UpdateShowScaleBar()
         {
             NativeMap.ShowMapScaleBar = Map.ShowScaleBar;
+        }
+
+        void UpdateShowZoomControl()
+        {
         }
 
         protected BMKMapView NativeMap => (BMKMapView)Control;
