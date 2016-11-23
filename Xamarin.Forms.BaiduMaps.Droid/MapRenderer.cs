@@ -43,7 +43,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 NativeMap.Map.SetOnMapLoadedCallback(null);
 
                 NativeMap.OnDestroy();
-                //NativeMap.Dispose();
             }
 
             System.Diagnostics.Debug.WriteLine("Disposing: " + disposing);
@@ -81,7 +80,6 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 oldMapView.Map.SetOnMapLoadedCallback(null);
 
                 oldMapView.OnDestroy();
-                oldMapView.Dispose();
             }
 
             if (null != e.NewElement)
