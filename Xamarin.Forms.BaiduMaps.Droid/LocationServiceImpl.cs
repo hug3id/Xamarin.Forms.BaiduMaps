@@ -41,15 +41,22 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         public void Start()
         {
             native.Start();
+            stopped = false;
         }
 
         public void Stop()
         {
+            stopped = true;
             native.Stop();
         }
 
+        bool stopped = true;
         public void OnReceiveLocation(BDLocation location)
         {
+            if (stopped) {
+                return;
+            }
+
             //Debug.WriteLine("LocType: " + location.LocType);
             switch (location.LocType) {
                 default:break;
