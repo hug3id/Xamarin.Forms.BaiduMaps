@@ -59,7 +59,7 @@ namespace Xamarin.Forms.BaiduMaps
             propertyName: nameof(ShowUserLocation),
             returnType: typeof(bool),
             declaringType: typeof(Map),
-            defaultValue: false
+            defaultValue: true
         );
 
         public bool ShowUserLocation {
@@ -156,7 +156,7 @@ namespace Xamarin.Forms.BaiduMaps
             propertyName: nameof(ShowScaleBar),
             returnType: typeof(bool),
             declaringType: typeof(Map),
-            defaultValue: false
+            defaultValue: true
         );
 
         public bool ShowScaleBar
