@@ -3,8 +3,14 @@
     <metadata minClientVersion="2.8.3">
         <id>Xamarin.Forms.BaiduMaps</id>
         <title>Xamarin.Forms.BaiduMaps</title>
-        <version>1.2</version>
+        <version>1.2.1</version>
         <releaseNotes>
+# 1.2.1
+
+## Bug fix
+
+* Fix crash problem (iOS)
+
 # 1.2
 
 * Update baidu sdk to v4.1.1(android) and v3.1(ios)
