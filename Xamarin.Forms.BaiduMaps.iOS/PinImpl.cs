@@ -77,7 +77,9 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Pin.ImageProperty.PropertyName == e.PropertyName) {
                 BMKPinAnnotationView view = (BMKPinAnnotationView)NativeMap.ViewForAnnotation(native);
-                view.Image = item.Image.ToNative();
+                if (view != null) {
+                    view.Image = item.Image.ToNative();
+                }
                 return;
             }
         }

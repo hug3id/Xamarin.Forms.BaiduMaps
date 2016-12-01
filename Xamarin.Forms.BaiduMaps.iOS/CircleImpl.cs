@@ -62,13 +62,13 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            if (Circle.TitleProperty.PropertyName == e.PropertyName)
+            if (Annotation.TitleProperty.PropertyName == e.PropertyName)
             {
                 native.Title = item.Title;
                 return;
             }
 
-            if (Circle.CoordinateProperty.PropertyName == e.PropertyName) {
+            if (Annotation.CoordinateProperty.PropertyName == e.PropertyName) {
                 native.Coordinate = item.Coordinate.ToNative();
                 return;
             }
@@ -80,19 +80,25 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Circle.WidthProperty.PropertyName == e.PropertyName) {
                 BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
-                view.LineWidth = item.Width;
+                if (view != null) {
+                    view.LineWidth = item.Width;
+                }
                 return;
             }
 
             if (Circle.ColorProperty.PropertyName == e.PropertyName) {
                 BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
-                view.StrokeColor = item.Color.ToUIColor();
+                if (view != null) {
+                    view.StrokeColor = item.Color.ToUIColor();
+                }
                 return;
             }
 
             if (Circle.FillColorProperty.PropertyName == e.PropertyName) {
                 BMKCircleView view = (BMKCircleView)NativeMap.ViewForAnnotation(native);
-                view.FillColor = item.Color.ToUIColor();
+                if (view != null) {
+                    view.FillColor = item.Color.ToUIColor();
+                }
                 return;
             }
         }

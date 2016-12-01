@@ -67,12 +67,12 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            if (Polygon.TitleProperty.PropertyName == e.PropertyName) {
+            if (Annotation.TitleProperty.PropertyName == e.PropertyName) {
                 native.Title = item.Title;
                 return;
             }
 
-            if (Polygon.PointsProperty.PropertyName == e.PropertyName) {
+            if (Polyline.PointsProperty.PropertyName == e.PropertyName) {
                 CLLocationCoordinate2D[] points = new CLLocationCoordinate2D[item.Points.Count];
                 for (int i = 0; i < points.Length; i++) {
                     points[i] = item.Points[i].ToNative();
@@ -82,21 +82,27 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            if (Polygon.WidthProperty.PropertyName == e.PropertyName) {
+            if (Polyline.WidthProperty.PropertyName == e.PropertyName) {
                 BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
-                view.LineWidth = item.Width;
+                if (view != null) {
+                    view.LineWidth = item.Width;
+                }
                 return;
             }
 
-            if (Polygon.ColorProperty.PropertyName == e.PropertyName) {
+            if (Polyline.ColorProperty.PropertyName == e.PropertyName) {
                 BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
-                view.StrokeColor = item.Color.ToUIColor();
+                if (view != null) {
+                    view.StrokeColor = item.Color.ToUIColor();
+                }
                 return;
             }
 
             if (Polygon.FillColorProperty.PropertyName == e.PropertyName) {
                 BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
-                view.FillColor = item.Color.ToUIColor();
+                if (view != null) {
+                    view.FillColor = item.Color.ToUIColor();
+                }
                 return;
             }
         }

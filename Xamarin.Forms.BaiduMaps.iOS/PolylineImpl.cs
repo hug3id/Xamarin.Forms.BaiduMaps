@@ -68,7 +68,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            if (Polyline.TitleProperty.PropertyName == e.PropertyName) {
+            if (Annotation.TitleProperty.PropertyName == e.PropertyName) {
                 native.Title = item.Title;
                 return;
             }
@@ -85,13 +85,17 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
             if (Polyline.WidthProperty.PropertyName == e.PropertyName) {
                 BMKPolylineView view = (BMKPolylineView)NativeMap.ViewForAnnotation(native);
-                view.LineWidth = item.Width;
+                if (view != null) {
+                    view.LineWidth = item.Width;
+                }
                 return;
             }
 
             if (Polyline.ColorProperty.PropertyName == e.PropertyName) {
                 BMKPolylineView view = (BMKPolylineView)NativeMap.ViewForAnnotation(native);
-                view.StrokeColor = item.Color.ToUIColor();
+                if (view != null) {
+                    view.StrokeColor = item.Color.ToUIColor();
+                }
                 return;
             }
         }
