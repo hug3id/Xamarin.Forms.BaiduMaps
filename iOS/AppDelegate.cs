@@ -13,7 +13,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            Xamarin.FormsBaiduMaps.Init("B3iCnaZ9pv6UDbenWBEHdfY36dsVLUnM");
+            Xamarin.FormsBaiduMaps.Init("Place your key here");
 
             LoadApplication(new App());
 
