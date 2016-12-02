@@ -71,7 +71,6 @@
     <Compile Include="CoordinateEx.cs" />
     <Compile Include="OfflineMapImpl.cs" />
     <Compile Include="LocationServiceImpl.cs" />
-    <Compile Include="ViewEx.cs" />
     <Compile Include="PolygonImpl.cs" />
     <Compile Include="CircleImpl.cs" />
     <Compile Include="CalculateUtilsImpl.cs" />
