@@ -16,7 +16,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         protected override BMKPointAnnotation CreateNativeItem(Pin item)
         {
             BMKPointAnnotation annotation = new BMKPointAnnotation {
-                Title = item.Title,
+                Title = string.IsNullOrEmpty(item.Title) ? "" : item.Title,
                 //Subtitle = item.Subtitle,
                 Coordinate = item.Coordinate.ToNative()
             };
@@ -71,7 +71,14 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             }
 
             if (Annotation.TitleProperty.PropertyName == e.PropertyName) {
-                native.Title = item.Title;
+                native.Title = string.IsNullOrEmpty(item.Title) ? "" : item.Title;
+
+                // 防止空白气泡弹出
+                BMKPinAnnotationView view = (BMKPinAnnotationView)NativeMap.ViewForAnnotation(native);
+                if (view != null) {
+                    view.CanShowCallout = !string.IsNullOrEmpty(item.Title);
+                }
+
                 return;
             }
 

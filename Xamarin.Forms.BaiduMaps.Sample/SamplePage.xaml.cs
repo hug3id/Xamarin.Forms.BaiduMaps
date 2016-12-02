@@ -64,7 +64,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                 Width = 2
             });
 
-            Task.Run(() => {
+            /*Task.Run(() => {
                 for (;;) {
                     Task.Delay(1000).Wait();
 
@@ -74,7 +74,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
 
                     map.Circles[0].Radius += 100;
                 }
-            });
+            });*/
 
             // 坐标转换
             IProjection proj = map.Projection;

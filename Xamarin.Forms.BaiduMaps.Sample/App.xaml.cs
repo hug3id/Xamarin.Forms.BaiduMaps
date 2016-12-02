@@ -8,6 +8,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
         {
             InitializeComponent();
 
+            //MainPage = new NavigationPage(new MyPage());
             MainPage = new SamplePage();
         }
 

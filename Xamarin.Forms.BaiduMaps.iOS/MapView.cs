@@ -31,6 +31,9 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                         // 开启后动态设置Image会导致pin图片拉伸
                         //annotationView.Enabled3D = ann.Enabled3D;
 
+                        // 防止空白气泡弹出
+                        annotationView.CanShowCallout = !string.IsNullOrEmpty(ann.Title);
+
                         if (null != ann.Image) {
                             annotationView.Image = ann.Image.ToNative();
                         }
