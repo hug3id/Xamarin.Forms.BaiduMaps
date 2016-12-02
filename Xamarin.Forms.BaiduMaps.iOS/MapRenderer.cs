@@ -30,6 +30,12 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 pinImpl.Unregister(Map);
                 polylineImpl.Unregister(Map);
                 polygonImpl.Unregister(Map);
+                circleImpl.Unregister(Map);
+
+                Map.Pins.Clear();
+                Map.Polylines.Clear();
+                Map.Polygons.Clear();
+                Map.Circles.Clear();
 
                 NativeMap.Delegate = null;
             }

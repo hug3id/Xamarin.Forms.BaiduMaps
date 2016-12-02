@@ -42,6 +42,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         protected override void RemoveNativeItem(Polygon item)
         {
             NativeMap.RemoveOverlay((NSObject)item.NativeObject);
+            item.NativeObject = null;
         }
 
         protected override void RemoveNativeItems(IList<Polygon> items)
@@ -49,6 +50,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NSObject[] list = new NSObject[items.Count];
             for (int i = 0; i < items.Count; i++) {
                 list[i] = (NSObject)items[i].NativeObject;
+                items[i].NativeObject = null;
             }
 
             NativeMap.RemoveOverlays(list);
@@ -83,26 +85,29 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             }
 
             if (Polyline.WidthProperty.PropertyName == e.PropertyName) {
-                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                BMKPolygonView view = NativeMap.ViewForAnnotation(native);
                 if (view != null) {
                     view.LineWidth = item.Width;
                 }
+
                 return;
             }
 
             if (Polyline.ColorProperty.PropertyName == e.PropertyName) {
-                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                BMKPolygonView view = NativeMap.ViewForAnnotation(native);
                 if (view != null) {
                     view.StrokeColor = item.Color.ToUIColor();
                 }
+
                 return;
             }
 
             if (Polygon.FillColorProperty.PropertyName == e.PropertyName) {
-                BMKPolygonView view = (BMKPolygonView)NativeMap.ViewForAnnotation(native);
+                BMKPolygonView view = NativeMap.ViewForAnnotation(native);
                 if (view != null) {
                     view.FillColor = item.Color.ToUIColor();
                 }
+
                 return;
             }
         }

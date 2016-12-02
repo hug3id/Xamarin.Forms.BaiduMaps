@@ -40,6 +40,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         protected override void RemoveNativeItem(Pin item)
         {
             NativeMap.RemoveAnnotation((NSObject)item.NativeObject);
+            item.NativeObject = null;
         }
 
         protected override void RemoveNativeItems(IList<Pin> items)
@@ -47,6 +48,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NSObject[] list = new NSObject[items.Count];
             for (int i = 0; i < items.Count; i++) {
                 list[i] = (NSObject)items[i].NativeObject;
+                items[i].NativeObject = null;
             }
 
             NativeMap.RemoveAnnotations(list);
@@ -87,6 +89,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 if (view != null) {
                     view.Image = item.Image.ToNative();
                 }
+
                 return;
             }
         }
