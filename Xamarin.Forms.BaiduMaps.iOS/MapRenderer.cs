@@ -82,8 +82,6 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 UpdateMaxZoomLevel();
 
                 UpdateCenter();
-                UpdateShowScaleBar();
-                UpdateShowZoomControl();
 
                 pinImpl.Unregister(e.OldElement);
                 pinImpl.Register(Map, NativeMap);

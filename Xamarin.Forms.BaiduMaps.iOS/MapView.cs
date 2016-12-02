@@ -161,6 +161,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             public override void DidFinishLoading(BMKMapView mapView)
             {
                 mapView.CompassPosition = new CoreGraphics.CGPoint(5, 20);
+                mapView.ShowMapScaleBar = map.Map.ShowScaleBar;
                 mapView.ViewWillAppear();
                 map.Map.Projection = new ProjectionImpl(mapView);
                 map.Map.SendLoaded();
