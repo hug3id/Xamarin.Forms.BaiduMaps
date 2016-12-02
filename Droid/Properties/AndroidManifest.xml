@@ -36,6 +36,6 @@
 	<uses-permission android:name="android.permission.READ_LOGS" />
 	<application android:label="Sample">
 		<service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
-		<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="cbo86ZIQKKslftBANhjwKMtoZXG7Lr8b" />
+		<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="Place your key here" />
 	</application>
 </manifest>
