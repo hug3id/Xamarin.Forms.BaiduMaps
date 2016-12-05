@@ -1,6 +1,18 @@
 # Xamarin.Forms.BaiduMaps
 A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)
 
+
+# 1.2.2
+
+## New Features
+
+* Replace MapStateChanged to MapStateChangedFinish (Android)
+
+## Bug fix
+
+* Fix crash problem (Android)
+* LevelZoom conflict with map moving
+
 # 1.2.1
 
 ## Bug fix
