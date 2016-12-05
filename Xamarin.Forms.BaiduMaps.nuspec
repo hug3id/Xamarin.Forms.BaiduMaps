@@ -82,7 +82,7 @@
         <!--Xamarin.iOS-->
         <file src="Xamarin.Forms.BaiduMaps\bin\Release\Xamarin.Forms.BaiduMaps.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.BaiduMaps.dll" />
         <file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\Xamarin.Forms.BaiduMaps.iOS.dll" target="lib\Xamarin.iOS10\Xamarin.Forms.BaiduMaps.iOS.dll" />
-        <file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\BMapBinding.iOS.dll" target="lib\Xamarin.iOS10\BMapBase.iOS.dll" />
+        <file src="Xamarin.Forms.BaiduMaps.iOS\bin\Release\BMapBinding.iOS.dll" target="lib\Xamarin.iOS10\BMapBinding.iOS.dll" />
 
         <!--uap-->
     </files>
