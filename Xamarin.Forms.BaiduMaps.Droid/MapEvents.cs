@@ -73,25 +73,11 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             }
         }
 
-        void MapStatusChanged(object sender, BaiduMap.MapStatusChangeEventArgs e)
+        void MapStatusChangeFinish(object sender, BaiduMap.MapStatusChangeFinishEventArgs e)
         {
-            bool changed = false;
-
-            Coordinate center = e.P0.Target.ToUnity();
-            if (Map.Center != center) {
-                Map.SetValueSilent(Map.CenterProperty, center);
-                changed = true;
-            }
-
-            float zoom = e.P0.Zoom;
-            if (Math.Abs(Map.ZoomLevel - zoom) > 0.01) {
-                Map.SetValueSilent(Map.ZoomLevelProperty, zoom);
-                changed = true;
-            }
-
-            if (changed) {
-                Map.SendStatusChanged();
-            }
+            Map.SetValueSilent(Map.CenterProperty, e.P0.Target.ToUnity());
+            Map.SetValueSilent(Map.ZoomLevelProperty, e.P0.Zoom);
+            Map.SendStatusChanged();
         }
 
         public void OnMapLoaded()

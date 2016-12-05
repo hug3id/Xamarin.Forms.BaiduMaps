@@ -39,7 +39,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 NativeMap.Map.MarkerDragStart -= OnMarkerDragStart;
                 NativeMap.Map.MarkerDrag -= OnMarkerDrag;
                 NativeMap.Map.MarkerDragEnd -= OnMarkerDragEnd;
-                NativeMap.Map.MapStatusChange -= MapStatusChanged;
+                NativeMap.Map.MapStatusChangeFinish -= MapStatusChangeFinish;
                 NativeMap.Map.SetOnMapLoadedCallback(null);
 
                 NativeMap.OnDestroy();
@@ -76,7 +76,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 oldMapView.Map.MarkerDragStart -= OnMarkerDragStart;
                 oldMapView.Map.MarkerDrag -= OnMarkerDrag;
                 oldMapView.Map.MarkerDragEnd -= OnMarkerDragEnd;
-                oldMapView.Map.MapStatusChange -= MapStatusChanged;
+                oldMapView.Map.MapStatusChangeFinish -= MapStatusChangeFinish;
                 oldMapView.Map.SetOnMapLoadedCallback(null);
 
                 oldMapView.OnDestroy();
@@ -94,7 +94,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
                 NativeMap.Map.MarkerDragStart += OnMarkerDragStart;
                 NativeMap.Map.MarkerDrag += OnMarkerDrag;
                 NativeMap.Map.MarkerDragEnd += OnMarkerDragEnd;
-                NativeMap.Map.MapStatusChange += MapStatusChanged;
+                NativeMap.Map.MapStatusChangeFinish += MapStatusChangeFinish;
                 NativeMap.Map.SetOnMapLoadedCallback(this);
 
                 NativeMap.ShowZoomControls(false);
