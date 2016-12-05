@@ -259,7 +259,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
         void UpdateCenter()
         {
-            NativeMap.SetCenterCoordinate(Map.Center.ToNative(), true);
+            NativeMap.SetCenterCoordinate(Map.Center.ToNative(), false);
         }
 
         void UpdateShowScaleBar()
