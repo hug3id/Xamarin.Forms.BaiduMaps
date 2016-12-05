@@ -57,7 +57,7 @@ iOS Project configuration:
         2. Open Info.plist
         2.1 Bundle identifier must accord with your baidu key
         2.2 Add items:
-        <key>NSApptransportSecurity</key>
+        <key>NSAppTransportSecurity</key>
         <dict>
             <key>NSAllowsArbitraryLoads</key>
             <true />
