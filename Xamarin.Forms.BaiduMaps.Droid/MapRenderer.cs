@@ -66,7 +66,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             if (null != e.OldElement) {
                 var oldMap = e.OldElement;
                 oldMap.Pins.Clear();
-                ((LocationServiceImpl)Map.LocationService).Unregister();
+                ((LocationServiceImpl)oldMap.LocationService).Unregister();
 
                 MapView oldMapView = Control;
                 oldMapView.Map.Clear();
