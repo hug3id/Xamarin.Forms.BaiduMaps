@@ -4,7 +4,7 @@ using System.Diagnostics;
 using CoreLocation;
 using Xamarin.Forms.Platform.iOS;
 
-using BMapMain;
+using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

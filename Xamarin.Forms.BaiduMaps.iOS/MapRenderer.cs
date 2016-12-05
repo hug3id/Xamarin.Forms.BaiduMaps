@@ -4,8 +4,7 @@ using System.Diagnostics;
 using UIKit;
 using CoreGraphics;
 
-using BMapBase;
-using BMapMain;
+using BMapBinding;
 
 using Xamarin.Forms.Platform.iOS;
 

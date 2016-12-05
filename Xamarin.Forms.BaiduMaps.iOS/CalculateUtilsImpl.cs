@@ -1,4 +1,4 @@
-﻿using BMapUtils;
+﻿using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

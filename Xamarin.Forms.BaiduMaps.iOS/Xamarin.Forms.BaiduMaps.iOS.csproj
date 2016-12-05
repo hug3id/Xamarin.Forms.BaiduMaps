@@ -81,21 +81,9 @@
       <Project>{AD7AE334-360D-4769-8F72-BD79C078FE87}</Project>
       <Name>Xamarin.Forms.BaiduMaps</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BMapLocation.iOS\BMapLocation.iOS.csproj">
-      <Project>{4228C0F8-0EEC-4DB0-9F60-16CCC040B0FA}</Project>
-      <Name>BMapLocation.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BMapBase.iOS\BMapBase.iOS.csproj">
-      <Project>{ED708957-4A0C-4127-B465-CF7D6191BDF6}</Project>
-      <Name>BMapBase.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BMapMain.iOS\BMapMain.iOS.csproj">
-      <Project>{5A9AE8C6-8824-4560-91F7-801252557A38}</Project>
-      <Name>BMapMain.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BMapUtils.iOS\BMapUtils.iOS.csproj">
-      <Project>{5AF56151-5C6A-4904-907B-DC053676F286}</Project>
-      <Name>BMapUtils.iOS</Name>
+    <ProjectReference Include="..\BMapBinding.iOS\BMapBinding.iOS.csproj">
+      <Project>{EB06C100-FAFE-4BEB-A574-EF4B8561CC32}</Project>
+      <Name>BMapBinding.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

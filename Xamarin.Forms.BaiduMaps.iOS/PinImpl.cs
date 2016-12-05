@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 using Foundation;
 
-using BMapMain;
+using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

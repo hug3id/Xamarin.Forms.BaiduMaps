@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using BMapMain;
+using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

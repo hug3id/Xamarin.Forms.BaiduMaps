@@ -1,6 +1,6 @@
 ﻿using CoreGraphics;
 
-using BMapMain;
+using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {

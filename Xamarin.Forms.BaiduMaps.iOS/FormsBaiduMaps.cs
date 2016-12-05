@@ -1,4 +1,4 @@
-﻿using BMapBase;
+﻿using BMapBinding;
 
 namespace Xamarin
 {

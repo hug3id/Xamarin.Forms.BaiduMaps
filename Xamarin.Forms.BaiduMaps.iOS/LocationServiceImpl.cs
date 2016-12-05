@@ -1,9 +1,7 @@
 ﻿using System;
 using Foundation;
 
-using BMapBase;
-using BMapMain;
-using BMapLocation;
+using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
