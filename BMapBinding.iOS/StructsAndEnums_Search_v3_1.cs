@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using CoreLocation;
 using Foundation;
 
-namespace BMapSearch
+namespace BMapBinding
 {
     //[Verify (InferredFromMemberPrefix)]
     public enum BMK

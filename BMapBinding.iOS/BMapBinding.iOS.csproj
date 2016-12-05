@@ -52,6 +52,9 @@
     <Compile Include="BaiduMapAPI_Radar_v3_1.linkwith.cs">
       <DependentUpon>BaiduMapAPI_Radar_v3_1.a</DependentUpon>
     </Compile>
+    <Compile Include="BaiduMapAPI_Search_v3_1.linkwith.cs">
+      <DependentUpon>BaiduMapAPI_Search_v3_1.a</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="BaiduMapAPI_Base_v3_1.a" />
@@ -60,6 +63,7 @@
     <ObjcBindingNativeLibrary Include="BaiduMapAPI_Utils_v3_1.a" />
     <ObjcBindingNativeLibrary Include="BaiduMapAPI_Cloud_v3_1.a" />
     <ObjcBindingNativeLibrary Include="BaiduMapAPI_Radar_v3_1.a" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Search_v3_1.a" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition_Base_v3_1.cs" />
@@ -68,6 +72,7 @@
     <ObjcBindingApiDefinition Include="ApiDefinition_Utils_v3_1.cs" />
     <ObjcBindingApiDefinition Include="ApiDefinition_Cloud_v3_1.cs" />
     <ObjcBindingApiDefinition Include="ApiDefinition_Radar_v3_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Search_v3_1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums_Base_v3_1.cs" />
@@ -76,6 +81,7 @@
     <ObjcBindingCoreSource Include="StructsAndEnums_Utils_v3_1.cs" />
     <ObjcBindingCoreSource Include="StructsAndEnums_Cloud_v3_1.cs" />
     <ObjcBindingCoreSource Include="StructsAndEnums_Radar_v3_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Search_v3_1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

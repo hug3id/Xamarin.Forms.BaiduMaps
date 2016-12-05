@@ -4,9 +4,7 @@ using Foundation;
 using ObjCRuntime;
 using CoreLocation;
 
-using BMapBase;
-
-namespace BMapSearch
+namespace BMapBinding
 {
     // @interface BMKCityListInfo : NSObject
     [BaseType(typeof(NSObject))]
