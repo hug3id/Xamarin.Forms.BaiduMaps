@@ -3,9 +3,7 @@ using CoreLocation;
 using Foundation;
 using ObjCRuntime;
 
-using BMapBase;
-
-namespace BMapCloud
+namespace BMapBinding
 {
     // @interface BMKCloudPOIList : NSObject
     [BaseType(typeof(NSObject))]

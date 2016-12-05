@@ -3,7 +3,7 @@
 using System.Runtime.InteropServices;
 using Foundation;
 
-namespace BMapCloud
+namespace BMapBinding
 {
     public enum BMKCloudSearchType : uint
     {

@@ -7,4 +7,4 @@
 
 using ObjCRuntime;
 
-[assembly: LinkWith ("BaiduMapAPI_Cloud v3.1.a", SmartLink = true, ForceLoad = true)]
+[assembly: LinkWith ("BaiduMapAPI_Base_v3_1.a", SmartLink = true, ForceLoad = true)]
