@@ -11,7 +11,7 @@ A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)
 ## Bug fix
 
 * Fix crash problem (Android)
-* LevelZoom conflict with map moving
+* LevelZoom conflict with map moving (iOS)
 
 # 1.2.1
 
