@@ -24,6 +24,14 @@ namespace BMapBinding
 
     public static partial class CFunctions
     {
+        // NSString * BMKGetMapApiVersion ();
+        //[DllImport ("__Internal")]
+        //[Verify (PlatformInvoke)]
+        public static string BMKGetMapApiVersion()
+        {
+            return "3.1.0";
+        }
+
         // BMKCoordinateSpan BMKCoordinateSpanMake (CLLocationDegrees latitudeDelta, CLLocationDegrees longitudeDelta);
         //[DllImport ("__Internal")]
         //[Verify (PlatformInvoke)]
