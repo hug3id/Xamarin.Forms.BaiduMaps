@@ -33,7 +33,7 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             native.RegisterLocationListener(this);
         }
 
-        ~LocationServiceImpl()
+        internal void Unregister()
         {
             native.UnRegisterLocationListener(this);
         }
