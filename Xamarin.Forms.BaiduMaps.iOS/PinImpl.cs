@@ -92,6 +92,11 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 
                 return;
             }
+
+            if (Pin.DraggableProperty.PropertyName == e.PropertyName) {
+                native.Draggable = item.Draggable;
+                return;
+            }
         }
     }
 }
