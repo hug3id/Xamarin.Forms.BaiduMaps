@@ -118,6 +118,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             public override void DidSelectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
             {
                 Pin annotation = map.Map.Pins.Find(view.Annotation);
+                view.SetSelected(false, true);
                 annotation?.SendClicked();
             }
 
