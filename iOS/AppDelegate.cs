@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 using Foundation;
 using UIKit;
@@ -12,8 +10,8 @@ namespace Xamarin.Forms.BaiduMaps.Sample.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
-            Xamarin.FormsBaiduMaps.Init("Place your key here");
+            Forms.Init();
+            FormsBaiduMaps.Init("B3iCnaZ9pv6UDbenWBEHdfY36dsVLUnM");
 
             LoadApplication(new App());
 

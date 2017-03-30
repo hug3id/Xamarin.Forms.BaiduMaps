@@ -44,10 +44,5 @@
 	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>
