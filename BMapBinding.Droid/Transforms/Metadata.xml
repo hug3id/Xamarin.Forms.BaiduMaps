@@ -1,20 +1,104 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 
-	<attr name="managedName" path="/api/package[@name='com.baidu.location']/class[@name='Address']/field[@name='address']">
+	<attr name="managedName" path="/api/package[@name='com.baidu.location']/
+		class[@name='Address']/field[@name='address']">
 		AddressName
 	</attr>
 
-	<attr name="managedName" path="/api/package[@name='com.baidu.mapapi']/class[@name='VersionInfo']/field[@name='VERSION_INFO']">
+	<attr name="managedName" path="/api/package[@name='com.baidu.mapapi']/
+		class[@name='VersionInfo']/field[@name='VERSION_INFO']">
 		VersionInfos
 	</attr>
-
-	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/class[@name='A']/field[@name='a']">
-		_a
+	
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='B']/field[@name='b']">
+		_b
+	</attr>
+	
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='E']/field[@name='e']">
+		_e
 	</attr>
 
-	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/class[@name='D']/field[@name='d']">
-		_d
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.location.d']/
+		class[@name='a']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.location.a']/
+		class[@name='b']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.location.a']/
+		interface[@name='b.b']">
+		false
+	</attr>
+	
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.mapapi.map']/
+		interface[@name='Overlay.a']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='h']">
+		false
+	</attr>
+
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='h']/field[@name='h']">
+		_h
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.mapapi.map']/
+		class[@name='l']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.mapapi.map']/
+		class[@name='l.a']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.mapapi.map']/
+		class[@name='WearMapView.b']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='d']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='t']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='w']">
+		false
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.mapapi.search.core']/
+		class[@name='i']">
+		false
+	</attr>
+
+	<attr name="eventName" path="/api/package[@name='com.baidu.mapapi.search.district']/
+		class[@name='DistrictSearch']/method[@name='setOnDistrictSearchListener']">
+		OnGetDistricSearchResultListener
+	</attr>
+
+	<attr name="obfuscated" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='E.a']">
+		false
+	</attr>
+
+	<attr name="managedName" path="/api/package[@name='com.baidu.platform.comapi.map']/
+		class[@name='E.a']/field[@name='a']">
+		_a
 	</attr>
 
 </metadata>
