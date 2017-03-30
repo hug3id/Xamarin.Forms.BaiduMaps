@@ -43,7 +43,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
             InitLocationService();
             InitEvents();
 
-            Coordinate[] coords = new Coordinate[] {
+            Coordinate[] coords = {
                 new Coordinate(40.044, 116.391),
                 new Coordinate(39.861, 116.284),
                 new Coordinate(39.861, 116.468)
@@ -64,7 +64,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
                 Width = 2
             });
 
-            /*Task.Run(() => {
+            Task.Run(() => {
                 for (;;) {
                     Task.Delay(1000).Wait();
 
@@ -74,7 +74,7 @@ namespace Xamarin.Forms.BaiduMaps.Sample
 
                     map.Circles[0].Radius += 100;
                 }
-            });*/
+            });
 
             // 坐标转换
             IProjection proj = map.Projection;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.booway.test">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0"
+	package="com.booway.test">
 	<uses-sdk android:minSdkVersion="15" />
 	<!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -36,6 +37,6 @@
 	<uses-permission android:name="android.permission.READ_LOGS" />
 	<application android:label="Sample">
 		<service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
-		<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="Place your key here" />
+		<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="cbo86ZIQKKslftBANhjwKMtoZXG7Lr8b" />
 	</application>
 </manifest>

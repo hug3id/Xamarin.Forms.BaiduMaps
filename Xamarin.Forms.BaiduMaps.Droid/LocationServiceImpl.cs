@@ -91,6 +91,11 @@ namespace Xamarin.Forms.BaiduMaps.Droid
             Failed?.Invoke(this, new LocationFailedEventArgs(location.LocType.ToString()));
         }
 
+        public void OnConnectHotSpotMessage(string p0, int p1)
+        {
+            //throw new NotImplementedException();
+        }
+
         public event EventHandler<LocationFailedEventArgs> Failed;
         public event EventHandler<LocationUpdatedEventArgs> LocationUpdated;
     }
