@@ -270,8 +270,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
         {
         }
 
-        protected BMKMapView NativeMap => (BMKMapView)Control;
-        protected Map Map => (Map)Element;
+        protected BMKMapView NativeMap => Control;
+        protected Map Map => Element;
     }
 }
 

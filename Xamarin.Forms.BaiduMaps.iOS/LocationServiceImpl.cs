@@ -7,9 +7,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
 {
     internal class LocationServiceImpl : BMKLocationServiceDelegate, ILocationService
     {
-        private BMKLocationService native;
-        private BMKMapView mapView;
-
+        BMKLocationService native;
+        BMKMapView mapView;
         public LocationServiceImpl(BMKMapView mapView)
         {
             this.mapView = mapView;

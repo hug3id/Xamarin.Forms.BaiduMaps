@@ -34,7 +34,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
                 return;
             }
 
-            item.SetValueSilent(Pin.CoordinateProperty, native.Coordinate.ToUnity());
+            item.SetValueSilent(Annotation.CoordinateProperty, native.Coordinate.ToUnity());
         }
 
         protected override void RemoveNativeItem(Pin item)
@@ -94,7 +94,11 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             }
 
             if (Pin.DraggableProperty.PropertyName == e.PropertyName) {
-                native.Draggable = item.Draggable;
+                BMKPinAnnotationView view = (BMKPinAnnotationView)NativeMap.ViewForAnnotation(native);
+                if (view != null) {
+                    view.Draggable = item.Draggable;
+                }
+
                 return;
             }
         }

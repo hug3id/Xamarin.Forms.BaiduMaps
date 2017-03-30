@@ -28,7 +28,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             NativeMap.AddOverlay(polygon);
 
             ((INotifyCollectionChanged)(IList)item.Points).CollectionChanged += (sender, e) => {
-                OnItemPropertyChanged(item, new PropertyChangedEventArgs(Polygon.PointsProperty.PropertyName));
+                OnItemPropertyChanged(item, new PropertyChangedEventArgs(Polyline.PointsProperty.PropertyName));
             };
 
             return polygon;
