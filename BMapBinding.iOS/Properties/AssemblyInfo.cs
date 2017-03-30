@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 
 using Foundation;
+using ObjCRuntime;
 
 // This attribute allows you to mark your assemblies as “safe to link”. 
 // When the attribute is present, the linker—if enabled—will process the assembly 
@@ -32,3 +33,48 @@ using Foundation;
 
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
+
+[assembly: LinkWith("BaiduMapAPI_Base_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    Frameworks = "CoreTelephony SystemConfiguration",
+    LinkerFlags = "-ObjC -lsqlite3.0",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Utils_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    LinkerFlags = "-ObjC",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Map_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    Frameworks = "Security OpenGLES QuartzCore",
+    LinkerFlags = "-ObjC -lstdc++.6.0.9",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Location_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    Frameworks = "CoreLocation",
+    LinkerFlags = "-ObjC",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Search_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    LinkerFlags = "-ObjC",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Radar_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    LinkerFlags = "-ObjC",
+    SmartLink = true,
+    ForceLoad = true)]
+
+[assembly: LinkWith("BaiduMapAPI_Cloud_v3_2_1",
+    LinkTarget.ArmV7 | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64,
+    LinkerFlags = "-ObjC",
+    SmartLink = true,
+    ForceLoad = true)]

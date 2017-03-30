@@ -34,54 +34,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaiduMapAPI_Base_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Base_v3_1.a</DependentUpon>
+    <Compile Include="libcrypto.linkwith.cs">
+      <DependentUpon>libcrypto.a</DependentUpon>
     </Compile>
-    <Compile Include="BaiduMapAPI_Location_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Location_v3_1.a</DependentUpon>
-    </Compile>
-    <Compile Include="BaiduMapAPI_Map_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Map_v3_1.a</DependentUpon>
-    </Compile>
-    <Compile Include="BaiduMapAPI_Utils_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Utils_v3_1.a</DependentUpon>
-    </Compile>
-    <Compile Include="BaiduMapAPI_Cloud_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Cloud_v3_1.a</DependentUpon>
-    </Compile>
-    <Compile Include="BaiduMapAPI_Radar_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Radar_v3_1.a</DependentUpon>
-    </Compile>
-    <Compile Include="BaiduMapAPI_Search_v3_1.linkwith.cs">
-      <DependentUpon>BaiduMapAPI_Search_v3_1.a</DependentUpon>
+    <Compile Include="libssl.linkwith.cs">
+      <DependentUpon>libssl.a</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Base_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Location_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Map_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Utils_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Cloud_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Radar_v3_1.a" />
-    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Search_v3_1.a" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Location_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Map_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Utils_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Cloud_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Radar_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Search_v3_2_1.cs" />
+    <ObjcBindingApiDefinition Include="ApiDefinition_Base_v3_2_1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition_Base_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Location_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Map_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Utils_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Cloud_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Radar_v3_1.cs" />
-    <ObjcBindingApiDefinition Include="ApiDefinition_Search_v3_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Base_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Location_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Map_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Utils_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Cloud_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Radar_v3_2_1.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums_Search_v3_2_1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingCoreSource Include="StructsAndEnums_Base_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Location_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Map_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Utils_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Cloud_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Radar_v3_1.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums_Search_v3_1.cs" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Base_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="libcrypto.a" />
+    <ObjcBindingNativeLibrary Include="libssl.a" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Utils_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Map_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Location_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Radar_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Cloud_v3_2_1" />
+    <ObjcBindingNativeLibrary Include="BaiduMapAPI_Search_v3_2_1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
