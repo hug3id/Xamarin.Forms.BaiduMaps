@@ -61,7 +61,8 @@ iOS Project configuration:
         3. Open AppDelegate.cs, add init code before LoadApplication:  
            Xamarin.FormsBaiduMaps.Init(“your baidu ios key”);
 
-        Extra configuation below version 1.3:
+        Extra configuation below version v1.3:
+###
         1. Right click project, enter Options->iOS Build->Additional mtouch arguments:  
         -gcc_flags "-L${ProjectDir} -framework MapKit -framework CoreMotion -framework CoreGraphics
         -framework QuartzCore -framework CoreText -framework CoreLocation -framework SystemConfiguration  
