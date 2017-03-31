@@ -1,5 +1,5 @@
 # Xamarin.Forms.BaiduMaps
-A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)
+A simply packaging of baidu maps sdk(update to android v4.2.1/ios v3.2.1)
 
 
 # 1.3
