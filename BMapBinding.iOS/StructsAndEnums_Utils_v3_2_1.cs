@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using CoreGraphics;
 using CoreLocation;
 using Foundation;
+using ObjCRuntime;
 
 namespace BMapBinding
 {
@@ -344,9 +345,13 @@ namespace BMapBinding
         public static extern double BMKAreaBetweenCoordinates (CLLocationCoordinate2D leftTop, CLLocationCoordinate2D rightBottom);
 
         // extern NSDictionary * BMKConvertBaiduCoorFrom (CLLocationCoordinate2D coordinate, BMKCoordType type) __attribute__((visibility("default")));
-        [DllImport ("__Internal")]
+        [DllImport ("__Internal", EntryPoint="BMKConvertBaiduCoorFrom")]
         //[Verify (PlatformInvoke)]
-        public static extern NSDictionary BMKConvertBaiduCoorFrom (CLLocationCoordinate2D coordinate, BMKCoordType type);
+        static extern IntPtr _BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMKCoordType type);
+        public static NSDictionary BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMKCoordType type)
+        {
+            return Runtime.GetNSObject<NSDictionary>(_BMKConvertBaiduCoorFrom(coordinate, type));
+        }
 
         // extern CLLocationCoordinate2D BMKCoorDictionaryDecode (NSDictionary *dictionary) __attribute__((visibility("default")));
         [DllImport ("__Internal")]
