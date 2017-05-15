@@ -50,6 +50,7 @@
     <Compile Include="Circle.cs" />
     <Compile Include="ICalculateUtils.cs" />
     <Compile Include="IProjection.cs" />
+    <Compile Include="IMapManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

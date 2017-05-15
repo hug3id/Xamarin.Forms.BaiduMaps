@@ -1,7 +1,15 @@
 ﻿using System;
+
 namespace Xamarin.Forms.BaiduMaps
 {
-    public interface EmptyInterface
+    public enum CoordType
     {
+    	BD09LL,
+    	GCJ02
+    }
+
+    public interface IMapManager
+    {
+        CoordType CoordinateType { get; set; }
     }
 }

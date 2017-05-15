@@ -11,6 +11,12 @@ namespace Xamarin.Forms.BaiduMaps.Sample
         public SamplePage()
         {
             InitializeComponent();
+
+            IMapManager mapManager = DependencyService.Get<IMapManager>();
+            Debug.WriteLine(mapManager.CoordinateType);
+            mapManager.CoordinateType = CoordType.GCJ02;
+            Debug.WriteLine(mapManager.CoordinateType);
+
             map.Loaded += MapLoaded;
 
             IOfflineMap offlineMap = DependencyService.Get<IOfflineMap>();

@@ -3,7 +3,7 @@ using Com.Baidu.Mapapi;
 
 namespace Xamarin.Forms.BaiduMaps.Droid
 {
-    public class MapManager : IMapManager
+    public class MapManagerImpl : IMapManager
     {
         public CoordType CoordinateType
         {

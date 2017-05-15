@@ -3,7 +3,7 @@ using BMapBinding;
 
 namespace Xamarin.Forms.BaiduMaps.iOS
 {
-    public class MapManager : IMapManager
+    public class MapManagerImpl : IMapManager
     {
         public CoordType CoordinateType
         {
