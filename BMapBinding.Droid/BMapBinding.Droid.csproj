@@ -50,21 +50,21 @@
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_base_v4_2_1.so" />
-    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_map_v4_2_1.so" />
     <EmbeddedNativeLibrary Include="arm64-v8a\liblocSDK7a.so" />
-    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_base_v4_2_1.so" />
-    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_map_v4_2_1.so" />
     <EmbeddedNativeLibrary Include="armeabi\liblocSDK7a.so" />
-    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_base_v4_2_1.so" />
-    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_map_v4_2_1.so" />
     <EmbeddedNativeLibrary Include="armeabi-v7a\liblocSDK7a.so" />
-    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_base_v4_2_1.so" />
-    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_map_v4_2_1.so" />
     <EmbeddedNativeLibrary Include="x86\liblocSDK7a.so" />
-    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_base_v4_2_1.so" />
-    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_map_v4_2_1.so" />
     <EmbeddedNativeLibrary Include="x86_64\liblocSDK7a.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_base_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="arm64-v8a\libBaiduMapSDK_map_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_base_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi\libBaiduMapSDK_map_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_base_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="armeabi-v7a\libBaiduMapSDK_map_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_base_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="x86\libBaiduMapSDK_map_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_base_v4_3_1.so" />
+    <EmbeddedNativeLibrary Include="x86_64\libBaiduMapSDK_map_v4_3_1.so" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="arm64-v8a\" />
@@ -94,7 +94,7 @@
     <Folder Include="Additions\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\BaiduLBS_Android_v4_2_1.jar" />
+    <EmbeddedJar Include="Jars\BaiduLBS_Android_v4_3_1.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
