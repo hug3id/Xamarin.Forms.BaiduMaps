@@ -3,8 +3,13 @@
     <metadata minClientVersion="2.8.3">
         <id>Xamarin.Forms.BaiduMaps</id>
         <title>Xamarin.Forms.BaiduMaps</title>
-        <version>1.3</version>
+        <version>1.3.1</version>
         <releaseNotes>
+# 1.3.1
+ 
+* Update baidu sdk to v4.3.1(android) and v3.3.1(ios)
+* Add IMapManager interface to support GCJ-02
+
 # 1.3
 
 * Update baidu sdk to v4.2.1(android) and v3.2.1(ios)
@@ -59,8 +64,8 @@
         <licenseUrl>https://github.com/hug3id/Xamarin.Forms.BaiduMaps/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/hug3id/Xamarin.Forms.BaiduMaps</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>A simply packaging of baidu maps sdk(android v4.1.1/ios v3.1)</description>
-        <summary>A simply packaging of baidu maps(android v4.1.1/ios v3.1)</summary>
+        <description>A simply packaging of baidu maps sdk(android v4.3.1/ios v3.3.1)</description>
+        <summary>A simply packaging of baidu maps(android v4.3.1/ios v3.3.1)</summary>
         <tags>xamarin forms maps xamarinforms xamarinformsmaps xamarin.forms.maps baidu baidumap</tags>
     <dependencies>
       <group>
