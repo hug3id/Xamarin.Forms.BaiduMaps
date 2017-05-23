@@ -1,6 +1,11 @@
 # Xamarin.Forms.BaiduMaps
-A simply packaging of baidu maps sdk(update to android v4.2.1/ios v3.2.1)
+A simply packaging of baidu maps sdk(update to android v4.3.1/ios v3.3.1)
 
+
+# 1.3.1
+ 
+* Update baidu sdk to v4.3.1(android) and v3.3.1(ios)
+* Add IMapManager interface to support GCJ-02
 
 # 1.3
 
