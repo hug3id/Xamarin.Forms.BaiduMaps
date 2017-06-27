@@ -347,16 +347,16 @@ namespace BMapBinding
         // extern NSDictionary * BMKConvertBaiduCoorFrom (CLLocationCoordinate2D coordinate, BMKCoordType type) __attribute__((visibility("default")));
         [DllImport ("__Internal", EntryPoint="BMKConvertBaiduCoorFrom")]
         //[Verify (PlatformInvoke)]
-        static extern IntPtr _BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMKCoordType type);
-        public static NSDictionary BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMKCoordType type)
+        public static extern IntPtr BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMKCoordType type);
+        public static NSDictionary BMKConvertBaiduCoorFrom2(CLLocationCoordinate2D coordinate, BMKCoordType type)
         {
-            return Runtime.GetNSObject<NSDictionary>(_BMKConvertBaiduCoorFrom(coordinate, type));
+            return Runtime.GetNSObject<NSDictionary>(BMKConvertBaiduCoorFrom(coordinate, type));
         }
 
         // extern CLLocationCoordinate2D BMKCoorDictionaryDecode (NSDictionary *dictionary) __attribute__((visibility("default")));
         [DllImport ("__Internal")]
         //[Verify (PlatformInvoke)]
-        public static extern CLLocationCoordinate2D BMKCoorDictionaryDecode (NSDictionary dictionary);
+        public static extern CLLocationCoordinate2D BMKCoorDictionaryDecode (IntPtr dictionary);
 
         // extern NSString * BMKGetMapApiUtilsComponentVersion () __attribute__((visibility("default")));
         [DllImport ("__Internal")]
