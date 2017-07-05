@@ -18,7 +18,8 @@ namespace Xamarin.Forms.BaiduMaps.Droid
         {
             Map.SendPoiClicked(new Poi {
                 Coordinate = e.P0.Position.ToUnity(),
-                Description = e.P0.Name
+                Description = e.P0.Name,
+                Uid = e.P0.Uid
             });
         }
 
