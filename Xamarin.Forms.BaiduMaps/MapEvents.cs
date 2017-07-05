@@ -33,6 +33,7 @@ namespace Xamarin.Forms.BaiduMaps
     {
         public Coordinate Coordinate { get; set; }
         public string Description { get; set; }
+        public string Uid { get; set; }        
     }
 
     public class MapPoiClickedEventArgs : EventArgs
