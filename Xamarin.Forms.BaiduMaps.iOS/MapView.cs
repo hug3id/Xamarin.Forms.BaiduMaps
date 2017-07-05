@@ -94,7 +94,8 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             {
                 Poi poi = new Poi {
                     Coordinate = mapPoi.Pt.ToUnity(),
-                    Description = mapPoi.Description
+                    Description = mapPoi.Description,
+                    Uid = mapPoi.Uid
                 };
 
                 map.Map.SendPoiClicked(poi);
