@@ -41,7 +41,7 @@ namespace Xamarin.Forms.BaiduMaps
         public Poi Poi { get; }
         public MapPoiClickedEventArgs(Poi poi)
         {
-            Poi = Poi;
+            Poi = poi;
         }
     }
 }
