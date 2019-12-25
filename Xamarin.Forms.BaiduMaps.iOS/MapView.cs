@@ -118,7 +118,7 @@ namespace Xamarin.Forms.BaiduMaps.iOS
             public override void DidSelectAnnotationView(BMKMapView mapView, BMKAnnotationView view)
             {
                 Pin annotation = map.Map.Pins.Find(view.Annotation);
-                view.SetSelected(false, true);
+                //view.SetSelected(false, true);  //comment by xiashao1980, 2019.5.28. This line causes the callout can't be moved synchronously when you pan or zoom in and zoom out the map .
                 annotation?.SendClicked();
             }
 

@@ -1,6 +1,10 @@
 # Xamarin.Forms.BaiduMaps
 A simply packaging of baidu maps sdk(update to android v4.3.1/ios v3.3.1)
 
+# 1.4 
+* Updae Xamarin.Forms to 3.6.0
+* Update Solution file to Visual Studio 2017
+# Fix bug: The callout can't be moved synchronously when you pan, zoom in or zoom out the map in iOS platform.
 
 # 1.3.1
  
